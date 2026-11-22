@@ -1,0 +1,7 @@
+panel,method,safe,unsafe,safe_issued,unsafe_issued,abstained,independent_P,scores_on_P,scored_Q,counting
+finite-broad-grid,clip+RB8,1920,1920,116,0,3724,50331648,50331648,330187407360,"iid categorical rows in law, paired across methods"
+finite-broad-grid,ordinary-RB8,1920,1920,181,2,3657,50331648,0,330187407360,"iid categorical rows in law, paired across methods"
+finite-broad-grid,real-Q-maximum,1920,1920,104,80,3656,47948336,47948336,79922668,"iid categorical rows in law, paired across methods"
+GUM-8-documents-16-candidates,clip+RB8,16,0,0,0,16,256,512,1048576,unique independent P across two candidates per document
+GUM-8-documents-16-candidates,ordinary-RB8,16,0,2,0,14,256,0,937984,unique independent P across two candidates per document
+GUM-8-documents-16-candidates,real-Q-maximum,16,0,0,0,16,256,512,2861,unique independent P across two candidates per document
