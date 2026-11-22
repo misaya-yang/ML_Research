@@ -2,3 +2,55 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# --- appended for local experiments / agent hygiene ---
+# Frozen artifacts under results/{ewt,finite_state,diagnostics,pro}/
+# (including tracked *.csv and *.log) and paper/manuscripts/*.pdf must
+# stay versioned. Do not add a blanket *.log, *.csv, or results/ rule.
+
+.idea/
+.vscode/
+*.swp
+*~
+
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# LaTeX build artifacts (no .tex in-tree today). Not *.log: frozen result logs are tracked.
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.toc
+*.out
+
+# Secrets
+kaggle.json
+access_token
+.env
+.env.*
+
+# Caches, weights, compiled extras (none of these are tracked today)
+.cache/
+hf_cache/
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.ckpt
+*.npz
+*.so
+
+# New experiment output only
+results/local_runs/
+outputs/
+runs/
+
+# Large EWT corpora if later copied into the data dir (not currently present)
+experiments/ewt/data/*.conllu

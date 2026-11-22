@@ -1,0 +1,8 @@
+model,T,burn,risk_over_variance,pro_upper_over_variance,certified_at_1_over_12,actually_safe_at_1_over_12
+high-and-unit,64,0,0.139952375563,0.615824619832,false,false
+medium,64,0,0.066678839257,0.135770175603,false,true
+high-and-unit,256,0,0.116536386247,0.541115601347,false,false
+medium,256,0,0.015234326077,0.025372647817,true,true
+low-initial,64,0,192.041991986334,,,
+rare-high,64,0,0.286893498619,,,
+rare-high,64,64,0.570934214134,,,
