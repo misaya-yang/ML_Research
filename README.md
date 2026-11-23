@@ -4,10 +4,10 @@ Living research workspace for error guarantees on a fixed proposal-start IMH cha
 
 ## Start here
 
-- [Current research brief (中文)](paper/research_notes/research_brief_zh.md)
-- [ICML 2027 roadmap (中文)](paper/research_notes/roadmap_zh.md)
+- [Current research brief](paper/research_notes/research_brief_zh.md)
+- [ICML 2027 roadmap](paper/research_notes/roadmap_zh.md)
 - [Three-channel synthesis and paper-level theorems](theory/proofs/three_channels.md)
-- [Experiment plan for the experiment agent (中文)](experiments/EXPERIMENT_PLAN_zh.md)
+- [Experiment plan for the experiment agent](experiments/EXPERIMENT_PLAN_zh.md)
 - [Fixed-target pointwise power and the equality boundary](theory/proofs/fixed_target_power.md)
 - [Long-window finite-budget frontier](theory/proofs/long_horizon_two_source_frontier.md)
 - [Same-chain disclosure results and white-box controls](results/disclosure/README.md)

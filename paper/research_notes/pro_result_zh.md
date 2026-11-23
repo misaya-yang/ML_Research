@@ -1,59 +1,63 @@
-# Pro 最新研究结果（用户转发的完整快照）
+# Pro Research Results: Archived Snapshot
 
-原对话：https://chatgpt.com/c/6b025d25-13f8-83e9-b670-2c18fefb5cb1?messageId=b3e8ff36-fcef-5736-836f-80c72d856d03
+Source: Pro results forwarded by the user. Private conversation and Library URLs have been omitted from this public translation. See [source inventory](../sources/SOURCE_LINKS.md) for the archive reference.
 
-源：用户转发的 Pro 结果，原工作区链接在其他环境不一定可打开；完整原包见 [原包链接](../sources/SOURCE_LINKS.md)。
+## 1. Main theorem
 
-**① 主定理。** 对从 \(Q\) 起步的指定独立 Metropolis–Hastings 链，在有限权重矩和明确的窗口条件下，认证普通时间均值的均方误差需要多少信息，由 \(p^{1-r}q^r\) 决定，其中 \(p\) 是独立目标样本数，\(q\) 是提议评分数。这个量同时给出可执行审计器的充分条件和所有审计器的必要条件，精确到常数。**CPU 实验支持这条最坏情形边界，但否定了“小配额下按此分配就能多签发”的实践预测。**
+For a fixed independent Metropolis–Hastings chain starting from \(Q\), under finite weight moments and specified window conditions, the information needed to certify mean squared error of the ordinary time average is governed by \(p^{1-r}q^r\). Here \(p\) is the number of independent target draws and \(q\) is the proposal scoring budget. It gives both an executable sufficient condition and a necessary condition for any auditor, up to constants. **CPU experiments support the worst-case frontier but refute the practical prediction that this allocation increases certification at small quotas.**
 
-设 \(W=dP/dQ>0\)，审计器只看到含未知公共倍数的分数 \(S=ZW\) 和观测值 \(0\le h\le1\)。令 \(X_0\sim Q\)，丢弃 \(b\) 步后平均 \(t\) 个状态得到 \(A\)。实际要认证的量是
+Let \(W=dP/dQ>0\). The auditor observes only scores \(S=ZW\) with unknown common multiplier and an observable \(0\le h\le1\). Start \(X_0\sim Q\); discard \(b\) steps and average \(t\) states to obtain \(A\). The quantity to certify is
 \[
 G=\mathbb E[(A-P h)^2]-\tfrac12\operatorname{Var}_P(h).
 \]
-要求对每个 \(G\ge0\) 的实例，误发概率至多 \(\delta\)；对每个 \(G\le-\varepsilon\) 的实例，签发概率至少 \(1-\delta\)。这排除了靠永远弃权满足保证的审计器。
+Require false certification probability at most \(\delta\) for each \(G\ge0\), and certification probability at least \(1-\delta\) for each \(G\le-\varepsilon\). This excludes an auditor that always abstains.
 
-**定理的精确范围。** 记 \(L=b+t,\ K=q/p\)。设 \(t\ge4,\ 0<r<1,\ \delta\le0.1\)，且
+**Exact scope.** Write \(L=b+t,\ K=q/p\). Suppose \(t\ge4,\ 0<r<1,\ \delta\le0.1\), and
 \[
 \mathbb E_Q\min(1,W)\ge\tfrac18,\qquad
 \mathbb E_Q W^{1+r}\le M,\qquad
 2(32L)^r\le M\le K^r/2,\qquad
 0<\varepsilon\le \frac{M}{2000K^r}.
 \]
-在这一区间，存在绝对常数 \(0<c<C\)。当 \(p^{1-r}q^r\ge CM\varepsilon^{-2}\log(1/\delta)\) 时，有审计器满足上述两项保证；任何满足保证的审计器都必须有
+In this regime there are absolute constants \(0<c<C\). An auditor satisfies both guarantees when \(p^{1-r}q^r\ge CM\varepsilon^{-2}\log(1/\delta)\), and every auditor meeting them must satisfy
 \[
 \boxed{p^{1-r}q^r\ge cM\varepsilon^{-2}\log(1/\delta).}
 \]
-上界的审计器无需输入 \(M,r,Z\)。下界甚至允许公开 \(Z\)、公开 \(h\)，以及自适应地点名查询状态的评分。一个直接推论是，\(r=1/2\) 时，在定理区间内把目标配额减为四分之一，维持同阶最坏情形保证需要四倍提议评分。完整证明还给出了**总查询数完全相同，一种分配足够、另一种分配必然不够**的实例序列。[完整定理与证明](../../theory/proofs/pro_moment_frontier_original.md)
+The upper-bound auditor does not take \(M,r,Z\) as inputs. The lower bound allows \(Z,h\) to be public and permits adaptive pointwise score queries. When \(r=1/2\), quartering the target quota in this regime requires four times as many proposal scores to maintain the same worst-case order. The proof also supplies instances where allocations with **the same total query budget** differ categorically: one suffices, the other cannot. [Complete theorem and proof](../../theory/proofs/pro_moment_frontier_original.md)
 
-证明里有两步决定了这个结论。
+Two steps establish the result.
 
-- **哪些信息能从 \(Q\) 补回来。** 用独立的提议样本确定截断点 \(H\)，令 \(v=\min(1,S/H)\)、\(g=\min(1,H/S)\)、\(\theta=Q(vh)/Qv\)。因为 \(Wg=(H/Z)v\)，有精确恒等式
+- **Information recoverable from \(Q\).** Use independent proposal draws to choose a cutoff \(H\). Put \(v=\min(1,S/H)\), \(g=\min(1,H/S)\), and \(\theta=Q(vh)/Qv\). The identity \(Wg=(H/Z)v\) implies
   \[
   Ph=\theta+P[(1-g)(h-\theta)].
   \]
-  第一项只消耗提议评分，第二项只让目标样本估计截断后留下的残差。把 \(H/Z\) 选到 \(q/p\) 的量级，两项随机误差同时达到 \(\sqrt{M\log(1/\delta)/(p^{1-r}q^r)}\) 的量级。对 \(h^2\) 用同一批样本，再用独立的普通冷轨迹估计 \(\mathbb EA,\mathbb EA^2\)，即可直接给 \(G\) 作上界。同一目标样本可以提供两个观测矩，证明对它们使用联合置信界，没有把它算成两次独立抽样。
-- **为什么更多轨迹不能任意替代 \(P\)。** 下界构造了权重为低值、\(32L\)、\(K\) 的三个状态群。最高权重群在目标下的质量为 \(m\asymp M/K^r\)，在提议下只有 \(m/K\)。改变这个群内标签的比例，再补偿低权重群，可以使公开的 \(Q(h=1)\) 完全相同。证明先把中间群校到**真实冷链风险门槛**，再证明这项扰动令一个世界 \(G<-\varepsilon\)、另一个 \(G>\varepsilon\)。每次目标查询带来的 KL 信息至多为 \(O(\varepsilon^2/m)\)，每次提议评分再少一个 \(K\) 因子。对自适应查询逐步相加即得下界。在这些二值实例上，若赠予真实 \(Ph\)，普通提议轨迹就能估计 \(G\)。因此这条下界定位到了**目标中心的不确定性**，没有把它误归因于冷链转移难算。
+  Estimate the first term using proposal scores only and use the target draws for the leftover residual. Choosing \(H/Z\) on the order of \(q/p\) gives both stochastic errors order \(\sqrt{M\log(1/\delta)/(p^{1-r}q^r)}\). Apply the same draws to \(h^2\), then use independent ordinary cold trajectories for \(\mathbb EA,\mathbb EA^2\) to bound \(G\) directly. One target draw provides both observable moments; a joint confidence bound is used rather than counting two independent draws.
+- **Why arbitrarily many trajectories do not substitute for \(P\).** The lower bound uses three groups of weights: low, \(32L\), and \(K\). The highest group has target mass \(m\asymp M/K^r\) and proposal mass \(m/K\). Altering its label proportion while compensating in the low group leaves public \(Q(h=1)\) unchanged. First calibrate the middle group to the **true cold-chain risk threshold**. The perturbation then produces worlds with \(G<-\varepsilon\) and \(G>\varepsilon\). Each target query has at most \(O(\varepsilon^2/m)\) KL information and each proposal score loses a factor \(K\). Summing along adaptive transcripts gives the lower bound. With true \(Ph\) disclosed, ordinary proposal trajectories can estimate \(G\) in these binary instances. The difficulty is **target centering**, not computing cold-chain transitions.
 
-创新范围可以划得很清楚。Smith–Tierney 定理 1 已给出 IMH 的精确多步转移核。Hesterberg §6 和 Veach 定理 9.2 的混合重要性采样分析已经蕴含已归一化静态均值的同阶方差上界；Meng–Wong 定理 1 研究了桥采样对归一化常数比值的效率。更近的 Zhang 等人（ICLR 2025）定理 1 给出已知源、目标分布时函数矩估计的极小极大下界。本轮新增的是**未知尺度下可执行的有限样本证书，以及相同双配额口径下、确实跨过指定冷链风险门槛的匹配下界**。这条证明不需要 Wiener 反演。[Eigenvalues And Eigenvectors](https://www.scribd.com/document/877458738/document?utm_source=chatgpt.com)
+Scope of novelty: Smith–Tierney's Theorem 1 already gives the exact IMH multistep kernel. Hesterberg §6 and Veach Theorem 9.2 imply order-matched variance bounds for normalized static means using mixture importance sampling. Meng–Wong Theorem 1 analyzes bridge sampling for normalizing-constant ratios. Zhang et al. (ICLR 2025), Theorem 1, give minimax moment-estimation bounds with known source and target distributions. The contribution here is an **executable finite-sample certificate at unknown scale and a matching lower bound at the specified cold-chain risk threshold under the same pair of budgets**. No Wiener inversion is needed. [Eigenvalues And Eigenvectors](https://www.scribd.com/document/877458738/document?utm_source=chatgpt.com)
 
-**② CPU 实验。** 先在旧 EWT 的 32 项失败任务上固定同一窗口、随机数和配额。按“不给真值／只给目标均值／只给归一化常数／两者都给”的顺序，虚拟跳步签发 **0、0、2、7** 项，普通回放签发 **24、32、24、32** 项。即使知道两个真值，虚拟跳步仍有 25 项弃权。旧面板的长窗口风险参考沿用原来的 8,192 条轨迹估计；本轮有限状态族和新序列面板另算了可核验的真值。旧失败逐例消融：原包内的 `dual_round/panel/old-ablation.csv`
+## 2. CPU experiments
 
-下表每格为**安全签发数／错误签发数／弃权数**。三种方法得到相同查询上限。普通回放使用八种顺序的条件路径矩，八种顺序共同构成一个统计观测。最高标记法的每组使用两个不同的独立目标锚点。
+For 32 old EWT failures, hold the window, random draws, and quotas fixed. In order of neither oracle, target mean only, normalizer only, and both oracles, virtual jumping certifies **0, 0, 2, 7** and ordinary replay **24, 32, 24, 32**. Even with both oracles, virtual jumping abstains on 25. The old long-window reference remains the original estimate from 8,192 paths; new finite-state and sequence panels have separately computed reference values. The raw old-failure ablation is `dual_round/panel/old-ablation.csv` in the source archive.
 
-| CPU 对照 | 安全／不安全测试数 | 截断双来源证书 | 普通轨迹回放 | 真实提议最高标记法 |
+Each cell is **safe certifications / false certifications / abstentions**. All methods receive the same query ceilings. Ordinary replay uses eight conditional-moment orderings, collectively one statistical observation. The highest-mark method uses two distinct independently drawn target anchors per observation.
+
+| CPU comparison | Safe / unsafe cases | Truncated two-source certificate | Ordinary trajectory replay | Real-proposal highest-mark method |
 |---|---:|---:|---:|---:|
-| 有限状态族，冻结的完整配额网格 | 1,920／1,920 | 116／0／3,724 | 181／2／3,657 | 104／80／3,656 |
-| 定理区间内，\(\sqrt{pq}=2^{23}\) | 96／96 | 0／0／192 | 2／1／189 | 3／3／186 |
-| 同一实例族，\(\sqrt{pq}=2^{32}\) | 96／96 | 96／0／96 | 81／0／111 | 未运行 |
-| 同一实例族，\(\sqrt{pq}=2^{36}\) | 96／96 | 96／0／96 | 96／0／96 | 未运行 |
-| 留出 GUM 完整序列，\(p=32,\ q=65{,}536\) | 16／0 | 0／0／16 | 2／0／14 | 0／0／16 |
+| Finite-state family, full frozen quota grid | 1,920 / 1,920 | 116 / 0 / 3,724 | 181 / 2 / 3,657 | 104 / 80 / 3,656 |
+| Theorem regime, \(\sqrt{pq}=2^{23}\) | 96 / 96 | 0 / 0 / 192 | 2 / 1 / 189 | 3 / 3 / 186 |
+| Same family, \(\sqrt{pq}=2^{32}\) | 96 / 96 | 96 / 0 / 96 | 81 / 0 / 111 | Not run |
+| Same family, \(\sqrt{pq}=2^{36}\) | 96 / 96 | 96 / 0 / 96 | 96 / 0 / 96 | Not run |
+| Held-out complete GUM sequences, \(p=32,\ q=65{,}536\) | 16 / 0 | 0 / 0 / 16 | 2 / 0 / 14 | 0 / 0 / 16 |
 
-有限族里，取 \(r=1/2\)，固定 \(\sqrt{pq}=2^{23}\)，把 \(q/p\) 从 4,096 改到 16,384、65,536。三次信息量最低的权重层都落在 \(q/p\)，最低总 KL 分别为 **3.592、3.592、3.594**。知道两个候选世界的似然比检验分别签发了 599、607、603 次安全实例，每组 1,024 次。实际审计器在同一区域的 96 次安全测试中全部弃权。到 \(2^{32}\) 时才观察到截断法比普通回放多签 15 项；其中最高权重那组每次已用 **\(2^{24}\) 个目标样本、\(2^{40}\) 个提议评分**。这些大数是 CPU 通过多项计数无损模拟的独立抽样量。定理区间内的这项补充检查在看到首轮结果后进行，没有充作第二个留出集。区间内逐例结果：原包内的 `dual_round/finite/blind-band-results.csv`；[本地合并账本](../../results/pro/combined_experiment_ledger.csv)
+In the finite family with \(r=1/2\) and \(\sqrt{pq}=2^{23}\) fixed, set \(q/p\) to 4,096, 16,384, and 65,536. The least informative layer is \(q/p\) in all three, and minimum total KL is **3.592, 3.592, 3.594**, respectively. The likelihood ratio test with both candidate worlds known certifies 599, 607, and 603 safe instances out of 1,024 each. The executable auditor abstains on all 96 safe tests in that region. At \(2^{32}\) truncation first certifies 15 more than replay. The largest weight group at that quota uses **\(2^{24}\) target draws and \(2^{40}\) proposal scores** per instance. Lossless multinomial-count simulation implements these large independent draw counts on CPU. This supplementary in-regime analysis was run after the first results and is not a second holdout. See `dual_round/finite/blind-band-results.csv` in the archive and the [local consolidated ledger](../../results/pro/combined_experiment_ledger.csv).
 
-**最关键的真实失败发生在一个几乎匹配的提议上。** GUM 有八个此前未使用的文档，每个文档两种提议。模型来自 EWT，每项枚举完整标注序列，16 个真实归一化风险的向外舍入区间均低于 \(0.5\)。在 `GUM_news_nasa-40` 的温和提议上，最大权重仅 **1.011861**，真实归一化风险 **0.064149**，截断后的真实尾部质量恰好为零。即使赠予精确路径矩，要签发仍须把目标均值区间收进 \([0.548738,0.973581]\)。新法得到 \([0.533822,0.963096]\)，普通回放得到 \([0.580522,0.949134]\)。差别落在**下端点**，足以改变签发决定。逐例风险与区间：原包内的 `dual_round/panel/gating-diagnostic.csv`
+**The most important real failure is on an almost matched proposal.** GUM uses eight unused documents with two proposals each. Models come from EWT; complete labeling sequences are enumerated. Outward-rounded intervals for all 16 true normalized risks lie below \(0.5\). For the mild proposal on `GUM_news_nasa-40`, maximum weight is only **1.011861**, true normalized risk **0.064149**, and the true tail mass after truncation exactly zero. Even with exact path moments, the target mean interval must lie within \([0.548738,0.973581]\) to certify. The new method obtains \([0.533822,0.963096]\), ordinary replay \([0.580522,0.949134]\). The **lower endpoint** flips the decision. See `dual_round/panel/gating-diagnostic.csv` for raw risks and intervals.
 
-固定每项实际选出的截断点，只赠予精确的提议端 \(\theta\)，保留实测目标残差区间，**16/16** 个中心区间都通过了精确路径矩判据。反过来，只赠予精确的目标端残差，只有 **1/16** 个通过。这定位了原型在该面板上的主要损失。它用两个很小的有界均值之比估计 \(\theta\)，当截断点随 \(q/p\) 增长时，通用置信界里的加性误差会被小分母放大。换成固定时点的路径检验后，主配额签发数仍是新法 0、普通回放 2。这里的 \(L=16,K=2048\) 也确实处在定理的功效保证区间之外。分量消融：原包内的 `dual_round/panel/component-check.csv`
+Holding each empirical cutoff fixed and supplying only exact proposal-side \(\theta\) while retaining the measured target residual interval makes **16/16** centering intervals pass the exact-path-moment gate. Supplying only the exact target residual makes **1/16** pass. Thus the prototype's principal loss on this panel is estimation of the ratio of two small bounded means. As the cutoff grows with \(q/p\), a small denominator amplifies additive error from generic confidence bounds. With fixed-time path testing the main-quota comparison remains zero certifications versus two for replay. Here \(L=16,K=2048\) is outside the theorem's power guarantee. See `dual_round/panel/component-check.csv` for the component ablation.
 
-GUM 主配额下，八份目标库共 **256 个独立目标样本**，两种提议复用同一库。新法、普通回放、最高标记法分别使用 **1,048,576／937,984／2,861** 个提议评分，另在目标样本上分别做 **512／0／512** 次候选特定评分。GUM 全部窗口安全，不能用它估计不安全实例上的误发率。独立解压复跑已对上逐例记录和 16 个风险区间；包内包括完整证明、有理数审计实现、冻结输入、CPU 命令和两类查询账本。[Cold-IMH-Two-Resource-Working-Files.zip](https://chatgpt.com/library?file_id=libfile_eb7d56ab61788191affa618fa13c13e9&account_id=personal)
+The eight target banks at the GUM main quota contain **256 independent target samples** in total, shared by the two proposals. The new method, replay, and highest-mark method use **1,048,576 / 937,984 / 2,861** proposal scores, and **512 / 0 / 512** additional candidate-specific scores on target draws. All GUM windows are safe, so they cannot estimate false certification on unsafe instances. A separate unpack-and-rerun matched the per-case records and 16 risk intervals. The source archive contains the proof, rational auditor, locked inputs, CPU commands, and two query ledgers: Cold-IMH-Two-Resource-Working-Files.zip (private archive).
 
-**③ 判断。** **足以作为 ICML 主文的理论主线；现有结果不足以主张 Oral 级的实际算法优势。** 论文现在能回答一个旧总查询界回答不了的问题：在什么分布类和风险间隔下，减少一个来源的独立观测，另一个来源必须增加多少，以及这个代价为什么确实落在部署的冷链上。实践上还缺一个明确的引理：能否在接近 \(P=Q\) 的实例上，仅用付费观测给提议端比值 \(\theta\) 建立足够窄的置信区间，同时对尚未观测到的重权状态保持误发保证。NASA 这一例给出了检验该引理的具体端点。把原型在这里的弃权解释为“目标样本天然不足”，与这轮实验不符。
+## 3. Assessment
+
+**Potentially suitable as a theory main result for ICML; current evidence does not establish an Oral-level practical algorithmic advantage.** The paper answers a question a total-query bound cannot: under which distribution class and risk margin must reducing one source's independent observations be offset by the other, by how much, and why that tradeoff really applies to the deployed cold chain. The practical missing lemma is a sufficiently narrow paid-observation confidence interval for proposal-side ratio \(\theta\) near \(P=Q\), while retaining false-certification control for as-yet-unseen high-weight states. The NASA case gives concrete endpoints for testing it. The results do not support explaining this abstention as inherently insufficient target sample count.

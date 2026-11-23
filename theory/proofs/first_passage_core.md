@@ -1,39 +1,39 @@
-# 首次通过：保留原策略的时钟、输出和验证成本
+# First passage: preserving the original policy’s clock, output, and verification costs
 
-## 精确抽样
+## Exact sampling
 
-令 $K(x,\cdot)=\alpha P(\cdot)+(1-\alpha)R(x,\cdot)$，从 $P$ 起步；独立刷新标记以概率 $\alpha$ 出现，且 $PR=P$。设 $R^*$ 是可精确抽样的逆核（可逆时即 $R$）。能抽取 $P\mid D$，知道覆盖通过事件 $E\subseteq D$ 的载体质量 $d=P(D)$，但不要求知道 $p=P(E)>0$ 或能抽取 $P\mid E$。记 $\gamma=p/d$、$G\sim\mathrm{Geom}(\alpha)$（正整数且独立），以及
+Let $K(x,\cdot)=\alpha P(\cdot)+(1-\alpha)R(x,\cdot)$ and start from $P$. Independent refresh marks occur with probability $\alpha$, and $PR=P$. Let $R^*$ be a reverse kernel that can be sampled exactly (it is $R$ when $R$ is reversible). Assume we can sample $P\mid D$ and know the mass $d=P(D)$ of a carrier covering the acceptance event $E\subseteq D$. We need not know $p=P(E)>0$ or be able to sample $P\mid E$. Write $\gamma=p/d$, let $G\sim\mathrm{Geom}(\alpha)$ (positive integer-valued and independent), and define
 $$
 U=\Pr_{P\mid E,R^*}(G\le\tau_E^+),\qquad
 \tau_E^+=\inf\{j\ge1:X_j\in E\}.
 $$
 
-两次刷新之间是从 $P$ 开始的平稳残余块，块长 $L\sim\mathrm{Geom}(\alpha)$。给定 $L$，第 $j\in\{0,\ldots,L-1\}$ 步首次通过、输出落在 $dz$ 的子概率为
+Between two refreshes is a stationary residual block starting from $P$, with length $L\sim\mathrm{Geom}(\alpha)$. Given $L$, the subprobability that the first acceptance occurs at step $j\in\{0,\ldots,L-1\}$ and the output falls in $dz$ is
 $$
 P(dz)\,\mathbf1_E(z)\Pr_z^{R^*}(\tau_E^+>j).
 $$
-在 $dL\le1/2$ 的块，先以 $dL$ 为概率启动，再独立均匀选年龄 $j$、从 $P\mid D$ 取 $z$；验证 $z\in E$，沿逆核检查前 $j$ 步没有更早通过。其余块用**未额外稀释**的顺序前向检查。未通过的块仍计入全长。从块子概率和更新关系得到与原策略完全相同的首次通过时间与输出 $(\tau,Z)$。已知非平稳的冷前缀应按原始初态顺序模拟到首次通过或首次刷新，不能直接当平稳块。对 $d\le\alpha/4$，短块的条件载体抽样与候选处的初始验证期望分别至多 $1/(\gamma U)$，短块残余抽样期望至多 $(1-\alpha)/\alpha$。这是短块账本：长块回退、逆向验证和取得条件载体样本的实际代价另计。
+For a block with $dL\le1/2$, activate with probability $dL$, then independently choose a uniform age $j$ and draw $z$ from $P\mid D$. Verify $z\in E$ and use the reverse kernel to check that the preceding $j$ steps did not accept earlier. For all other blocks, use sequential forward checks **without additional thinning**. Count the full length of a block that does not accept. The block subprobability and renewal relation give exactly the same first-acceptance time and output $(\tau,Z)$ as the original policy. A known nonstationary cold prefix must be simulated sequentially from the original initial state until the first acceptance or first refresh; it cannot be treated as stationary. For $d\le\alpha/4$, the expected numbers of short-block conditional carrier draws and initial candidate checks are each at most $1/(\gamma U)$, and the expected number of short-block residual draws is at most $(1-\alpha)/\alpha$. These counts cover short blocks only: long-block fallback, reverse verification, and the actual cost of conditional carrier sampling are separate.
 
-验证昂贵时，改用活动集 $A=D\setminus\{\text{已缓存为负的身份}\}$。每次先精确跳到真实的首个 $A$ 到达状态，仅对未见身份调用验证器。负例写缓存，从到达时的完整状态和时钟继续；未来刷新按强马尔可夫性质重新抽样，而不是直接重置到 $P$。在相同确定性验证器、身份缓存和访问顺序定义下，这保持了付费验证记录（身份、次序、时刻及负载）的分布，而非只保持最终成功率。
+When verification is expensive, use the active set $A=D\setminus\{\text{identities cached as negative}\}$. First jump exactly to the actual first entrance into $A$ and invoke the verifier only for an unseen identity. Cache a negative result and resume with the complete state and clock at arrival. Future refreshes are redrawn by the strong Markov property; do not reset immediately to $P$. With the same deterministic verifier, identity cache, and definition of visit order, this preserves the distribution of the paid verification ledger (identities, order, times, and payloads), not merely the final success rate.
 
-**没有逆核时的边界。** 平稳前向见证可以恢复首达年龄的边缘分布，不保证前缀成本的联合分布。例如均匀平稳的三环 $e\to a\to b\to e$，通过集为 $\{e\}$，状态成本 $c(a)=0,c(b)=1$。年龄为 1 的首达必须从 $b$ 到 $e$，前缀成本为 0 的真实子概率为 0；从 $e$ 前向走到 $a$ 并用其成本代替，给出 $1/3$。
+**Limit without the reverse kernel.** A stationary forward witness can recover the marginal first-passage age law but need not recover its joint law with prefix cost. For example, use the uniformly stationary three-cycle $e\to a\to b\to e$, acceptance set $\{e\}$, and state costs $c(a)=0,c(b)=1$. At age 1, the first acceptance must go from $b$ to $e$, so the true subprobability of prefix cost 0 is 0. Instead moving forward from $e$ to $a$ and substituting its cost gives $1/3$.
 
-## 样本接口的下界
+## Lower bound in the sample-access model
 
-在隐藏快速/黏滞状态的可逆族里，模型查询揭示快慢，独立验证查询揭示是否通过；公开 $P,\alpha,d,\gamma$ 且普通 $P$ 与载体抽样免费。每类查询的价格为 $w_R,w_E$。对该族的一次精确输出，最坏期望最优价格（差常数）为
+In the reversible family with hidden fast and sticky states, a model query reveals whether a state is fast or slow and an independent verification query reveals whether it passes. Here $P,\alpha,d,\gamma$ are public, and draws from ordinary $P$ and the carrier are free. The query prices are $w_R,w_E$. For one exact output in this family, the worst-case optimal expected price is, up to constants,
 $$
 \Theta\!\left(\frac{w_R}{\alpha}+\frac{w_E}{\gamma}
       +\frac{\min\{w_R,w_E\}}{\alpha\gamma}\right).
 $$
-交集隐藏使得短查询记录很难同时获得两个信息；两条抽样路线分别在便宜的一侧多花查询，实现该族的上界。
+The hidden intersection makes it hard for a short query transcript to obtain both types of information. Two sampling routes attain the family’s upper bound by spending more queries on the cheaper side.
 
-这个障碍也可形成常数正确率的有限时间 **95% 截止认证** 区分问题。让两组实例具有同样快状态总数和通过状态总数，只改变交集。对停留在安全锚点的残余链，令额外进入通过集的单步概率为 $v/(1-\alpha)$，令 $b=\alpha p$。若 $S_t=\Pr(\tau>t)$，则
+The same obstruction yields a finite-time **95% deadline certification** problem with constant correctness probability. The two instance groups have the same numbers of fast and accepting states, but different intersections. For a residual chain at the safe anchor, let the additional one-step probability of entering the acceptance set be $v/(1-\alpha)$ and let $b=\alpha p$. If $S_t=\Pr(\tau>t)$, then
 $$
 S_{t+1}=(1-b-v)S_t+v\Pr(\tau>t,X_t\in D),\qquad
 0\le v\Pr(\tau>t,X_t\in D)\le vd.
 $$
-零交集和均衡正交集分别给出同一截止时间约 90% 和 99% 的通过率（小参数下保持固定余量），但 $n$ 次付费样本查询的记录总变差为 $O(\alpha\gamma n)$。在该族的均衡交集附近，以相对交集差 $\theta$ 定义精度时，查询下界再乘 $\theta^{-2}\log(1/\delta)$（需要载体质量足够小、载体规模足够大）。这些是特定查询接口和实例族的结论，不覆盖可直接读取转移矩阵的求解器，也不是任意两项资源同时绑定的下界。
+An empty intersection and a balanced positive intersection yield acceptance rates of approximately 90% and 99% at the same deadline (with fixed margins in the small-parameter regime), yet the total variation distance between transcripts of $n$ paid sample queries is $O(\alpha\gamma n)$. Near the balanced intersection in this family, measuring accuracy by a relative intersection difference $\theta$ adds a factor of $\theta^{-2}\log(1/\delta)$ to the query lower bound (the carrier mass must be small enough and its cardinality large enough). These statements are for the specified query interface and instance family. They do not cover solvers that can read the transition matrix directly or arbitrary settings where two resource constraints bind simultaneously.
 
-## 标签不确定时的联合认证
+## Joint certification under label uncertainty
 
-固定提议及各项非负累计代价。基准轨迹通过后，只需针对它的首次通过身份 $x$ 续跑一次：将该身份在缓存中改作负例，不退回已付代价，保留真实状态和时钟。其他单标签删除不影响这条已通过的轨迹，基准失败的轨迹不可能因删除正标签而变成通过。若 $s$ 是基准联合通过率，$\ell_x$ 是“基准通过、首次通过身份为 $x$、删除后续跑失败”的概率，则至多一个正标签错误下的最坏通过率精确为 $s-\max_x\ell_x$。先对 $s$ 与全体 $\ell_x$ 建立同时置信界，再对最大损失取界；不能把未校正的逐标签置信界当成整体保证。
+Fix proposals and all nonnegative accumulated costs. For each baseline trajectory that accepts, continue it once for its first accepted identity $x$: relabel that identity as negative in the cache, retain the costs already paid, and resume from the actual state and clock. Deleting any other single label does not affect that already accepted trajectory, and a baseline failure cannot become an acceptance by deleting a positive label. If $s$ is the baseline joint acceptance rate and $\ell_x$ is the probability that the baseline accepts first at $x$ but its continuation after deletion fails, then the worst-case acceptance rate under at most one erroneous positive label is exactly $s-\max_x\ell_x$. Construct simultaneous confidence bounds for $s$ and all $\ell_x$ before bounding the maximum loss; unadjusted per-label confidence bounds do not give a joint guarantee.

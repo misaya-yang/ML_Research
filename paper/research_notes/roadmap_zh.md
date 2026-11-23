@@ -1,128 +1,132 @@
-# ICML 2027 路线图
+# ICML 2027 Roadmap
 
-2026-11-22 起草。截稿日期按往年惯例约在 1 月下旬，以官网为准。本文件是唯一的路线图，随进度原地更新，不另存日期版本。研究现状见[当前研究说明](research_brief_zh.md)。
+## 2026-11-23: Main line and execution order
 
-**目标**：solid accept。Oral 只是上行空间，取决于 E3 能否给出"理论预测、实验吻合"的图。
+Follow the [research question and main line](../../RESEARCH_QUESTION.md). This round focuses on exact first-passage acceleration for the existing verification-guided search: (1) establish what the same real policy does uniquely well and what headroom remains after optimization; (2) turn the carrier, its probability, conditional sampling, and earlier-hit checks into priced native interfaces, with a boundary under equal access; (3) evaluate strong baselines on the same task with independent holdout data and the same physical budget. Preserve the 30-task 14.90% result and the original 15% gate. Do not expand the narrow task, launch OProver 8B, or promote one-shot decoding or older audit work to the main line. The earlier plan and status below are historical and should not be run automatically if they conflict with this section.
 
-**分工**：理论由 Claude 推进，总览见 [three_channels.md](../../theory/proofs/three_channels.md)。实验由实验 agent 按 [EXPERIMENT_PLAN_zh.md](../../experiments/EXPERIMENT_PLAN_zh.md) 执行，入口是 [EXPERIMENTS_README.md](../../EXPERIMENTS_README.md)。
+Drafted 2026-11-22. Based on prior years, the deadline is expected in late January; confirm on the official site. This is the only roadmap and is updated in place, not as dated copies. See the [current research brief](research_brief_zh.md).
 
-## 1. 定位
+**Target:** solid accept. Oral is an upside case, contingent on E3 producing a figure in which experiments match the theoretical prediction.
 
-**候选主张**：审计采样器和运行采样器在信息上不是一回事。冷启动 IMH 的认证代价由目标样本与提议评分之间的双源前沿决定；公开一个标量（归一化常数）就会改变这条前沿。
+**Responsibilities:** Claude leads theory; see [three_channels.md](../../theory/proofs/three_channels.md). The experimental agent follows [EXPERIMENT_PLAN_zh.md](../../experiments/EXPERIMENT_PLAN_zh.md), starting at [EXPERIMENTS_README.md](../../EXPERIMENTS_README.md).
 
-**问题改写**（应对"为什么不直接用 P 样本"）：
+## 1. Positioning
 
-- 把"MSE < Var/2"改写成"冷启动有效样本量 ESS ≥ k"，Var/2 恰好对应 k=2。主定理对一般 k 陈述。
-- 增加边际偏差版本 |E h(X_T) − Ph|，对应只输出单个样本的生成式采样。
-- 摊销命题：离线审计一次，部署时拿不到 P。把旧稿第 7 节的价格分析整理成"审计何时比直接抽 P 便宜"的盈亏平衡条件。
+**Candidate claim:** Auditing a sampler and running it require different information. Cold-start IMH certification cost follows a two-source frontier between target samples and proposal scores; disclosing a single scalar, the normalizer, changes it.
 
-**ML 钩子**：认证推理时计算预算 T。目标取奖励倾斜分布 P ∝ π_ref·exp(r/β)，此时 Z 真正算不出，也不存在白盒动态规划。
+**Reframing** (to answer “Why not just sample from P?”):
 
-**不主张**：实际预算下的方法优势、通用部署加速。审计器定位为"有效且速率最优"。
+- Replace “MSE < Var/2” with “cold-start effective sample size ESS ≥ k”; Var/2 corresponds to k=2. State the main result for general k.
+- Add marginal bias |E h(X_T) − Ph| to cover generative sampling that returns a single draw.
+- Amortization proposition: certify once offline, then deploy without access to P. Turn the pricing analysis in §7 of the older draft into a break-even criterion for when auditing is cheaper than drawing directly from P.
 
-## 2. 正文结构（8 页）
+**ML connection:** Certify inference-time compute budget T. Use a reward-tilted target P ∝ π_ref·exp(r/β), where Z is genuinely intractable and white-box dynamic programming does not apply.
 
-| 部分 | 内容 | 现有来源 |
+**Not claimed:** Method advantage at practical budgets or general deployment speedup. The auditor is positioned as valid and rate-optimal.
+
+## 2. Main paper structure (8 pages)
+
+| Section | Contents | Existing source |
 |---|---|---|
-| 主定理 | 三条信息通道的前沿：W 上尾→目标中心（P 付费），重叠/停留时间→冷链动力学（Q 每条路径付 T，P 虚拟跳每次付 1/η₀），W 下尾→尺度（ω 小时 Q 付费） | [长窗口双源边界](../../theory/proofs/long_horizon_two_source_frontier.md)、[矩前沿](../../theory/proofs/pro_moment_frontier_original.md) |
-| 精确定理 | 固定 p 的功效上限 Π_p = min{1, δ/(1−κ)^p}，以及 e_p 对称多项式构造的尺度无关 e-value；p=0 时功效 ≤ δ | [固定目标功效](../../theory/proofs/fixed_target_power.md) Part I |
-| 推论 | 双源 log Z 极小极大下界，回答 Micaletto (arXiv 2610.17403) 留作开放的问题 | [归一化估计](../../theory/proofs/normalizer_estimation_black_box.md) |
-| 实验 | E1、E2、E3，E4 放附录 | 见第 4 节 |
-| 附录 | 全部证明、等号反例、有限状态核验 | Part II、[cap_equality.py](../../experiments/finite_state/cap_equality.py) |
+| Main theorem | Three information channels: upper W tail → centering (pay for P), overlap/holding time → cold-chain dynamics (pay T for a Q path or 1/η₀ per virtual P jump), lower W tail → scale (pay for Q when ω is small) | [Long-window two-source frontier](../../theory/proofs/long_horizon_two_source_frontier.md), [moment frontier](../../theory/proofs/pro_moment_frontier_original.md) |
+| Exact theorem | Fixed-p ceiling Π_p = min{1, δ/(1−κ)^p} and scale-free e-value using elementary symmetric polynomial e_p; at p=0, power ≤ δ | [Fixed-target power](../../theory/proofs/fixed_target_power.md) Part I |
+| Corollary | Two-source minimax lower bound for log Z, addressing the open question in Micaletto (arXiv 2610.17403) | [Normalizer estimation](../../theory/proofs/normalizer_estimation_black_box.md) |
+| Experiments | E1, E2, E3; E4 in the appendix | See §4 |
+| Appendix | Full proofs, equality counterexample, and finite-state checks | Part II, [cap_equality.py](../../experiments/finite_state/cap_equality.py) |
 
-图：Fig 1 三通道示意加相图；Fig 2 E1 前沿斜率；Fig 3 E2 功效曲线；Fig 4 E3 β 扫描。
+Figures: Fig 1 three channels and phase diagram; Fig 2 E1 frontier slope; Fig 3 E2 power curves; Fig 4 E3 β sweep.
 
-## 3. 理论任务
+## 3. Theory tasks
 
-| 编号 | 任务 | 优先级 | 完成标准 |
+| ID | Task | Priority | Completion |
 |---|---|---|---|
-| T0 | 证明落地。把下列只存在于 chatgpt.com library 链接里的文件导入仓库：verify_local.py、verify_interval.py、weighted_half_gate.py、ratio_floor_fixed_omega.py、fixed_gate.py、rational_gate.py、LOCAL-POWER.md、NORMALIZER-MINIMAX.md、half_gate.md。每个主定理写成自洽的附录证明，并由合作者逐行核验 | 阻塞项 | 每条证明标注核验人和日期；所有被引脚本可在本地运行 |
-| T1 | 统一主定理：把矩类换成尾部轮廓类 P(W>D) ≤ Ψ(D)，前沿写成对截断水平 D 取最优。上界已在 D≈q/p 处截断，下界用临界水平的三层构造；p^{1−r}q^r 作为幂律推论 | 必做 | 一条定理覆盖三通道；若 W3 末未完成，启用退路：矩类与重叠类分两个定理，用相图统一 |
-| T2 | 固定 p 精确定理补一个对 q 一致的有限样本速率（至少在矩类中） | 必做 | 回应"只有逐点极限"的质疑 |
-| T2b | 核实推论：单根附近 κ ∝ \|G\|，因此 q→∞ 时逐点需要约 log(1/δ)/ε 个目标样本，而一致极小极大要 ε⁻²log(1/δ) | 必做 | 写成命题，或确认不成立后删除 |
-| T3 | 推广到一般门槛 Var/k 与边际偏差；下界中 J(c)=1/2 的标定改为任意根 | 应做 | 定理陈述不依赖 k=2 |
-| T4 | 补缺口：η₀∈(1/4096,1/64] 的加权下界、短窗口 Tη₀<C/ε、ω>cη₀ | 应做 | 至少补上 ω>cη₀（与 E3 的 β 扫描对应） |
+| T0 | Bring proofs into the repository. Import files currently available only through ChatGPT Library: verify_local.py, verify_interval.py, weighted_half_gate.py, ratio_floor_fixed_omega.py, fixed_gate.py, rational_gate.py, LOCAL-POWER.md, NORMALIZER-MINIMAX.md, half_gate.md. Write self-contained appendix proofs and have a collaborator check them line by line | Blocking | Each proof records checker and date; all referenced scripts run locally |
+| T1 | Unify the main theorem: replace the moment class with a tail-profile class P(W>D) ≤ Ψ(D), optimizing the frontier over cutoff D. The upper bound already clips at D≈q/p; use a three-layer lower bound at the critical level; recover p^{1−r}q^r in the power-law case | Required | One theorem covers all three channels; if unfinished at the end of W3, state separate moment and overlap theorems and unify them in a phase diagram |
+| T2 | Add a finite-sample rate uniform in q to the exact fixed-p theorem, at least in the moment class | Required | Address the objection that the result is only a pointwise limit |
+| T2b | Check the corollary: κ ∝ \|G\| near a simple root, so pointwise as q→∞ about log(1/δ)/ε target samples suffice, whereas the uniform minimax requirement is ε⁻²log(1/δ) | Required | State a proposition or remove the claim if false |
+| T3 | Extend to general Var/k and marginal bias; calibrate the lower bound at an arbitrary root instead of J(c)=1/2 | Desirable | The theorem does not depend on k=2 |
+| T4 | Fill gaps: weighted lower bound for η₀∈(1/4096,1/64], short windows Tη₀<C/ε, and ω>cη₀ | Desirable | Resolve at least ω>cη₀, corresponding to the E3 β sweep |
 
-**不做**：等号情形的完整分类（保留反例于附录）；Tauberian/Wiener 部分不进正文；删去旧稿里涉及黎曼猜想的那句。
+**Out of scope:** Classifying all equality cases (keep the counterexample in the appendix); putting the Tauberian/Wiener material in the main text. Remove the sentence about the Riemann hypothesis from the older draft.
 
-**进展（11/22，均为 Claude 推导，待人工核验）**：
-- T1 已起草：[tail_profile_frontier.md](../../theory/proofs/tail_profile_frontier.md)。在常数重叠下，前沿为 p≍A·Ψ(q/p)，矩类、正则变化尾和折线尾都是推论；k 为一般值；常数随 k 多项式变差。小重叠与尾部轮廓联合的情形仍开放。
-- T2 已起草：[fixed_target_extensions.md](../../theory/proofs/fixed_target_extensions.md) §4，在矩类中给出逼近上限的有限 q 速率 (M/q^r)^{1/(1+r)}。
-- T2b 已证（同文件 §2）：κ≥|G_k|/(1+1/k)，所以逐点需要 Θ(ε⁻¹log(1/δ)) 个目标样本，而一致下界是 ε⁻²。
-- T3 部分完成（同文件 §1）：任何一维中心审计（ESS 门槛、输出偏差、窗口偏差）都有同一个精确上限。中心下界族推广到一般 k；加权动力学下界族只覆盖 k∈(1.2,2.34)，其余仍开放。
-- T4 部分完成：ω≥cη₀ 时尺度约束是冗余的（[three_channels.md](../../theory/proofs/three_channels.md) 命题 C1），三条不等式因此对所有 ω 成立。短窗口仍开放。
-- 新增披露二分：Z 已知时逐点 p=0 就够；Z 未知时上限精确为 δ/(1−κ)^p。这可作为 Theorem 2 的核心信息。
-- 小重叠联合前沿部分解决：[small_overlap_joint_frontier.md](../../theory/proofs/small_overlap_joint_frontier.md)。
-  - 中心通道对任意重叠成立（网格求交证书，上界多一个 log log q）。
-  - 对处处有效的审计器，前沿统一为 p≍ε⁻²log(1/δ)·max{Ψ(q/p),ε}；q→∞ 时与逐点 ε⁻¹ 衔接，把 Theorem A 和 Theorem 2 连成一条公式。
-  - 只要尾部轮廓不约束窗口尺度以内的权重，三通道联合前沿完整成立。为此把动力学下界族的吸收层从 T² 降到约 3T，已做精确数值核验。
-  - P 跳跃成本有了依赖尾部的形式 C·min{1/η₀, 1+D_{1/2}/(η₀t)}，已做模拟核验。
-  - 尾部在窗口内就开始衰减的情形仍开放，已写出猜想和下一步。
-- 冷启动风险上界已证：[cold_risk_bound.md](../../theory/proofs/cold_risk_bound.md)。
-  - 对任意等价对、任意 h∈[0,1]、任意 (b,t)，R_Q(b,t)≤44Γ_t，其中 Γ_t=E_P min(W,t)/t。不需要尾部假设，不需要谱隙，W 可以无界。精确数值的最大比值约 1.4。
-  - 精化版 R≤C·[E_P min(W/t,1,L/W)+τ_P(L)²]：冷启动对 L 以外的权重按 L/W 打折，偏差项按 τ 平方计。
-  - 推论：贴近门槛的实例必有 Var_P(h)≤k(44Γ_t+ε)，难例只能是低方差 h。
-  - 推论：Γ-证书处处有效，完全不跑链，成本 p≍kℓ/Var、q≍d_{1/4}ℓ。它给正文一条实用信息：带常数倍余量的认证很便宜，三通道代价只在门槛附近出现。
-  - 开放区猜想的上界一半已得到（差一个 k 因子）。
-- 方差缩放的下界族已在常数重叠下证出：[variance_scaled_floor.md](../../theory/proofs/variance_scaled_floor.md)。
-  - 两个粘滞层放在权重 t/c₁、t/c₂，各带目标质量 ρ/2。两个世界只把 h=1 标签在两层之间挪动。P 和 Q 下的 W 分布、两个 h 边际、μ、Var 全部不变，满足 Pro 提出的条件。
-  - 结论：p+q/t≳A·min{Ψ(t),c/k}，即轻窗口下动力学通道的代价是 A·ρ 而不是 A。和 R4 合起来，常数重叠时动力学通道为 p+q/t≍AΨ(t)（Ψ(t)≥Cε；上界仍是草稿）。
-  - 结构性事实：标签过程独立于层过程，所以 G_k 对倾斜参数恰好是二次多项式，一阶曲率为零。精确数值核验通过（8 状态链，残差 1e-16）。
-  - 仍开放：Ψ(t)<Cε 的极轻窗口。可作为 Theorem 1(c) 写进正文。
-- 小重叠下界已推出（同一节「Small overlap」，门槛、公开信息、取样权限都与常数重叠相同，需人工审计，实验对应 X11/P14）。
-  - 不可能区间：若类要求 Γ_t≤γ<½，则 ηt<1/(4γ) 时不存在任何实例；其余区间用 5 层底座实现，ρ_B=d/t≍1/(ηt)。
-  - V_η：粘滞标签下界 p+q/t≳ρA 在任意 η 下成立。P 的系数仍是 1，不会变成 ηp。
-  - Proposition N：烧入 b≳2d·log(Γρ_B/ε²) 之后，或 b=0 且 ηt≳Γ/ε² 时，任何公开边际不变的见证对都满足 KL_P≥ε²/(330Γ_t)。所以这里见证不了 λ<1。若插值估计达到这个速率（未证），E4 猜想的 λ≍1/c_P 在此区间不成立。
-  - Theorem S：b=0 时，启动层（权重 1、P 质量 1/d、冷启动占据约 ρ_B/2）的标签倾斜能跨门槛，代价 p+q≳d a_U²A/64，a_U≍ρ_B·max(ρ,ρ_B)。对偏重 P 的审计者，这是 ρ_B⁴A/η，在 η≪ρ_B⁴/ρ 时远大于 ρA。精确数值：增益 K 随 t 线性增长（t=2^18 时为 468）。
-  - 仍开放：ε²/Γ_t≲ρ_B≲ε/max(ρ,ρ_B) 这一段；k≤3.6 且启动段在窗口内；Theorem S 与 E4 的 P 路线之间差 Γ/ρ_B³。
+**Progress (11/22; all derived by Claude and pending human verification):**
+- T1 drafted in [tail_profile_frontier.md](../../theory/proofs/tail_profile_frontier.md). Under constant overlap the frontier is p≍A·Ψ(q/p). Moment, regularly varying, and piecewise linear tails follow; k is general, with constants degrading polynomially in k. Joint small overlap and tail profiles remain open.
+- T2 drafted in [fixed_target_extensions.md](../../theory/proofs/fixed_target_extensions.md) §4, with finite-q rate (M/q^r)^{1/(1+r)} for approaching the ceiling in the moment class.
+- T2b proved (same file §2): κ≥|G_k|/(1+1/k), giving pointwise Θ(ε⁻¹log(1/δ)) target samples, versus a uniform ε⁻² lower bound.
+- T3 partly done (same file §1): the same ceiling applies to any one-dimensional centering audit (ESS, output bias, window bias). The centering lower bound extends to general k. The weighted dynamics family covers only k∈(1.2,2.34).
+- T4 partly done: the scale constraint is redundant when ω≥cη₀ ([three_channels.md](../../theory/proofs/three_channels.md), Proposition C1), so all three inequalities hold for every ω. Short horizons remain open.
+- New disclosure dichotomy: with known Z, pointwise p=0 suffices; with unknown Z, the precise cap is δ/(1−κ)^p. This can anchor Theorem 2.
+- Joint small-overlap frontier partly resolved in [small_overlap_joint_frontier.md](../../theory/proofs/small_overlap_joint_frontier.md).
+  - The centering channel applies at arbitrary overlap using an intersection-over-grid certificate, with an extra log log q in the upper bound.
+  - The unified frontier for everywhere-valid auditors is p≍ε⁻²log(1/δ)·max{Ψ(q/p),ε}. As q→∞ it connects to pointwise ε⁻¹, linking Theorem A and Theorem 2.
+  - The joint three-channel frontier holds when the tail profile does not constrain weights within the window scale. The absorbing layer in the dynamics lower bound moves from T² to roughly 3T, verified by exact numerical checks.
+  - Tail-dependent P jump cost is C·min{1/η₀, 1+D_{1/2}/(η₀t)}, checked by simulation.
+  - Cases where the tail decays within the window are open; the conjecture and next step are written down.
+- Cold-start risk upper bound proved in [cold_risk_bound.md](../../theory/proofs/cold_risk_bound.md).
+  - For any equivalent pair, any h∈[0,1], and any (b,t), R_Q(b,t)≤44Γ_t with Γ_t=E_P min(W,t)/t. No tail assumption or spectral gap is required; W can be unbounded. The largest exact numerical ratio is about 1.4.
+  - Refined R≤C·[E_P min(W/t,1,L/W)+τ_P(L)²]: cold-start contributions for weights beyond L are discounted by L/W; the bias term is quadratic in τ.
+  - Near-threshold instances necessarily have Var_P(h)≤k(44Γ_t+ε), so hard cases must have low-variance h.
+  - The Γ certificate is everywhere valid without running the chain, with p≍kℓ/Var and q≍d_{1/4}ℓ. Certification with a constant-factor margin is cheap; the three-channel cost arises only near the threshold.
+  - The upper-bound half of the open-regime conjecture is established up to a factor k.
+- Variance-scaled lower bound proved for constant overlap in [variance_scaled_floor.md](../../theory/proofs/variance_scaled_floor.md).
+  - Two sticky levels at t/c₁ and t/c₂ each have target mass ρ/2. Moving only h=1 labels across them preserves W laws under P and Q, both h marginals, μ, and Var, meeting Pro's conditions.
+  - The result is p+q/t≳A·min{Ψ(t),c/k}: the light-window dynamics cost is A·ρ rather than A. Combined with R4, the constant-overlap dynamics channel is p+q/t≍AΨ(t) for Ψ(t)≥Cε; the upper bound is still a draft.
+  - The label process is independent of the level process, so G_k is exactly quadratic in the tilt parameter, with zero first-order curvature. Exact numerical check passed (8 states, residual 1e-16).
+  - The very light regime Ψ(t)<Cε remains open. The established result can be Theorem 1(c).
+- Small-overlap lower bound derived (same “Small overlap” section). The gate, public information, and sampling access match the constant-overlap regime; human audit pending, experiments X11/P14.
+  - Impossibility: if the class requires Γ_t≤γ<½, no instance exists at ηt<1/(4γ). A five-layer base realizes the other regime, with ρ_B=d/t≍1/(ηt).
+  - V_η: sticky-label lower bound p+q/t≳ρA holds at any η. The coefficient of P remains 1, not ηp.
+  - Proposition N: after b≳2d·log(Γρ_B/ε²) burn-in, or at b=0 and ηt≳Γ/ε², any witness pair preserving public marginals satisfies KL_P≥ε²/(330Γ_t). It cannot witness λ<1 here. If interpolation attains this rate (unproved), E4's λ≍1/c_P conjecture fails in this regime.
+  - Theorem S: at b=0, tilting labels in the startup level (weight 1, P mass 1/d, cold-start occupancy about ρ_B/2) can cross the gate. Its cost is p+q≳d a_U²A/64 with a_U≍ρ_B·max(ρ,ρ_B). For a P-heavy auditor this is ρ_B⁴A/η, far larger than ρA when η≪ρ_B⁴/ρ. Exact numerical check: gain K grows linearly with t, reaching 468 at t=2^18.
+  - Still open: ε²/Γ_t≲ρ_B≲ε/max(ρ,ρ_B); k≤3.6 when startup lies within the window; a Γ/ρ_B³ gap between Theorem S and E4's P route.
 
-## 4. 实验任务
+## 4. Experimental tasks
 
-可执行版本（伪代码、冻结判据、Kaggle 预算）见 [EXPERIMENT_PLAN_zh.md](../../experiments/EXPERIMENT_PLAN_zh.md)。对应关系：E0→X0，E1→X1，E2→X2，E3→X4/X5，E4→X6，E5→X7，另加 X3（一般 k 的核验）。
+See [EXPERIMENT_PLAN_zh.md](../../experiments/EXPERIMENT_PLAN_zh.md) for executable pseudocode, frozen criteria, and Kaggle budgets. Mapping: E0→X0, E1→X1, E2→X2, E3→X4/X5, E4→X6, E5→X7, plus X3 (general-k verification).
 
-统一账本规则沿用现有约定：所有对照拿到相同信息；目标样本按实际生成成本计价（拒绝采样的尝试次数照算）；白盒方法标为 oracle 对照，不作为方法输赢。
+Continue existing accounting: controls get equal information; target draws are charged at actual generation cost, including rejection attempts; label white-box controls as oracles and exclude them from method wins/losses.
 
-| 编号 | 内容 | 成功标准 |
+| ID | Experiment | Success criterion |
 |---|---|---|
-| E0 | **前置筛查。** 高阶奖励对照表明，提议头部能便宜覆盖时，零目标样本的点名评分就能判对全部任务（[逐例结果](../../results/disclosure/README.md)）。大实验前先测"可负担的提议头部"覆盖多少概率质量 | 只让头部覆盖不足的任务进入 E3/E4 |
-| E1 | 用现有多项计数无损模拟，在 (n_P, n_Q) 对数网格上比较已知两世界的似然比检验（信息下包络）与审计器。r∈{.25,.5,.75}；尺度已知与未知各一组 | 拟合斜率的置信区间覆盖 −(1−r)/r；尺度未知时前沿按理论方向平移 |
-| E2 | p∈{1,2,4,8,16}，功效随 q 的收敛；所需 p 随 κ 的变化 | 实测功效与 δ/(1−κ)^p 的差在 Monte Carlo 误差内；所需 p 按 1/κ 增长 |
-| E3 | LLM 奖励倾斜目标 P ∝ π_ref·exp(r/β)，Q 取 π_ref 或更小的模型；精确 P 用拒绝采样（包络 e^{r_max/β}）。β 同时决定 ω=e^{−Δr/β} 和 η₀。观测量候选：GSM8K 验证器正确性、安全标记、格式约束。在留出 prompt 集上给出认证的推理时预算 T | 至少一段 β 区间里，"只用 P 估尺度"的失效点与理论预测一致；报告真实生成成本 |
-| E4 | 预注册：至少 200 个安全、200 个不安全的近门槛任务（合成加 LLM） | 误发率的 95% 上置信界 ≤ δ |
-| E5 | 审计器常数改进：betting CI（Waudby-Smith & Ramdas）替换 Maurer–Pontil 经验 Bernstein；θ 改用被接受 Q 样本的条件二项区间（分量消融中赠予精确 θ 时 16/16 通过）；顺序 e-process 提前停止 | 中等预算下，与似然比包络所需预算之比明显缩小 |
+| E0 | **Pre-screen.** The higher-order reward control shows that when the proposal head is cheap to cover, pointwise scores with zero target samples decide every case ([per-case results](../../results/disclosure/README.md)). Measure how much probability an affordable proposal head covers before scaling up | Only tasks with insufficient head coverage enter E3/E4 |
+| E1 | Use lossless multinomial counts on a logarithmic (n_P, n_Q) grid to compare a known-world likelihood ratio test (information lower envelope) with the auditor. r∈{.25,.5,.75}; run known and unknown scale | Slope confidence intervals cover −(1−r)/r; the unknown-scale frontier shifts in the predicted direction |
+| E2 | p∈{1,2,4,8,16}; power convergence with q and target quota dependence on κ | Difference from δ/(1−κ)^p within Monte Carlo error; required p increases as 1/κ |
+| E3 | LLM reward tilt P ∝ π_ref·exp(r/β), Q is π_ref or a smaller model; exact P via rejection sampling with envelope e^{r_max/β}. β determines both ω=e^{−Δr/β} and η₀. Candidate observables: GSM8K verifier correctness, safety marker, or format. Certify inference budget T on held-out prompts | For at least one β interval, the failure point of P-only scale estimation matches theory; report real generation cost |
+| E4 | Preregister at least 200 safe and 200 unsafe near-threshold tasks (synthetic and LLM) | 95% upper confidence bound on false certification ≤ δ |
+| E5 | Improve constants: betting CIs (Waudby-Smith & Ramdas) instead of Maurer–Pontil empirical Bernstein, estimate θ via conditional binomial intervals on accepted Q draws (16/16 pass if exact θ is given in the ablation), and sequential e-process early stopping | At moderate budgets, substantially close the budget ratio relative to the likelihood ratio envelope |
 
-## 5. 时间表
+## 5. Timeline
 
-| 周 | 日期 | 理论 | 实验 | 检查点 |
+| Week | Dates | Theory | Experiments | Checkpoint |
 |---|---|---|---|---|
-| W1 | 11/23–11/29 | 叙事和定理清单定稿；T0 导入缺失文件 | E0 筛查；E3 可行性（拒绝采样接受率、模型与奖励选型） | 叙事定稿；E0 至少找到一个头部覆盖不足的设置 |
-| W2 | 11/30–12/06 | T1、T2 附录级证明 | E1 | |
-| W3 | 12/07–12/13 | T1、T2 交合作者核验；T2b | E2 | T1 未完成则启用退路 |
-| W4 | 12/14–12/20 | T3 | E3 主跑 | 接受率过低则缩短生成长度或收窄 β |
-| W5 | 12/21–12/27 | T4 | E3 收尾；E5 | 节假日，留缓冲 |
-| W6 | 12/28–01/03 | 统一记号 | E4 | 主图冻结 |
-| W7 | 01/04–01/10 | 写作：正文与附录 | 补消融 | |
-| W8 | 01/11–01/17 | 写作 | 复现包自洽检查 | 完整初稿 |
-| W9 | 01/18–01/24 | 模拟审稿，专找证明漏洞 | | 投稿 |
+| W1 | 11/23–11/29 | Finalize narrative and theorems; import missing T0 files | E0 screen; E3 feasibility (rejection acceptance, model/reward selection) | Finalize narrative; E0 finds at least one insufficient-head setting |
+| W2 | 11/30–12/06 | Appendix-level T1/T2 proofs | E1 | |
+| W3 | 12/07–12/13 | Collaborator verifies T1/T2; T2b | E2 | If T1 remains open, use the fallback |
+| W4 | 12/14–12/20 | T3 | Main E3 run | If acceptance is too low, shorten sequences or narrow β |
+| W5 | 12/21–12/27 | T4 | Finish E3; E5 | Holiday buffer |
+| W6 | 12/28–01/03 | Unify notation | E4 | Freeze primary figures |
+| W7 | 01/04–01/10 | Write paper and appendix | Add ablations | |
+| W8 | 01/11–01/17 | Write | Reproduction bundle consistency checks | Full first draft |
+| W9 | 01/18–01/24 | Mock review focused on proof gaps | | Submit |
 
-## 6. 退路
+## 6. Fallbacks
 
-- E0 找不到头部覆盖不足的 LLM 设置，或 E3 在 W5 末仍无结果：以"理论加合成验证"投 ICML，叙事去掉推理时预算，保留 ESS 认证。
-- T1 未证出：矩类与重叠类分两个定理，用相图统一。
-- log Z 下界可以单独投 AISTATS 或 COLT，避免正文过载。
+- If E0 cannot find an LLM with insufficient proposal head coverage, or E3 has no result by the end of W5, submit theory plus synthetic validation to ICML. Remove inference-time budgeting from the narrative and retain ESS certification.
+- If T1 remains open, state separate moment and overlap theorems and unify them with a phase diagram.
+- Consider submitting the log Z lower bound separately to AISTATS or COLT to avoid overloading the main text.
 
-## 7. 风险登记
+## 7. Risk register
 
-| 风险 | 内容 | 对策 |
+| Risk | Issue | Countermeasure |
 |---|---|---|
-| R1 动机 | 旧稿第 7 节自证 13 个独立标签即可给出保证 MSE 的缓存标量；Var/2 门槛像随手挑的 | 第 1 节问题改写；T3 |
-| R2 实验 | GUM 上 clip+RB8 签发 0/16；有限族里到 2²⁴ 个目标样本、2⁴⁰ 次评分才胜过普通回放；白盒动态规划判对 16/16；高阶奖励对照中零目标样本方法判对 6/6 | 不主张方法优势；E0 筛查；E3 换到 Z 真正不可算的场景 |
-| R3 碎片化 | 4–5 个定理分属不同 oracle、分布类和区间，常数条件多，且有自注的缺口 | T1、T4 |
-| R4 核验 | 多数证明是 Pro 的压缩推导，部分自注 "candidate"；被引文件不在仓库 | T0 |
-| R5 投稿方向 | 写法偏 COLT/AoS | 第 1 节 ML 钩子；E3 |
+| R1 Motivation | Older draft §7 itself proves 13 independent labels suffice for a cached scalar with guaranteed MSE; Var/2 looks arbitrary | Reframe in §1 and do T3 |
+| R2 Experiments | GUM clip+RB8 certifies 0/16; finite cases need 2²⁴ target samples and 2⁴⁰ scores before beating replay; white-box DP decides 16/16; zero-target sampling decides 6/6 on the higher-order reward control | Do not claim practical advantage; run E0 and move E3 to settings with intractable Z |
+| R3 Fragmentation | 4–5 theorems use different oracles, classes and regimes, with constant restrictions and acknowledged gaps | T1 and T4 |
+| R4 Verification | Most proofs are compressed Pro derivations, some labeled “candidate”; referenced files are missing from the repository | T0 |
+| R5 Venue fit | Presentation reads like COLT/AoS | ML connection in §1 and E3 |
 
-## 8. 待核实
+## 8. To verify
 
-- T2b 中逐点 ε⁻¹ 与一致 ε⁻² 的对照。
-- LLM-MCMC 相关文献（QUEST、QAlign、Karan & Du 的 power sampling、RSO 的拒绝采样）的具体结论。这些工作多用保留前缀的 MH，IMH 是其中整段重采样的特例。
-- ICML 2027 的确切截稿日期和页数限制。
+- The T2b comparison of pointwise ε⁻¹ and uniform ε⁻².
+- Exact findings of prior LLM-MCMC work (QUEST, QAlign, Karan & Du power sampling, and RSO rejection sampling). Most use prefix-preserving MH; IMH is the special case that redraws the full sequence.
+- Exact ICML 2027 deadline and page limits.
