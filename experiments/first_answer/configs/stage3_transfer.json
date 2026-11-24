@@ -1,0 +1,57 @@
+{
+ "model_dir": "/var/folders/py/yshkz8454g98pq1wc0rnw5pm0000gp/T/icml-m4-native.8t0fjn/qwen15-official",
+ "model": "Qwen/Qwen2.5-1.5B-Instruct (revision 989aa7980e4cf806f80c7fef2b1adb7bc71aa306 per STATUS_air_kaggle_zh.md), model.safetensors sha256 dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee, bf16, sdpa, MPS. The only local copy with weights sits in a macOS temp folder; ~/paper_project/models/Qwen2.5-1.5B-Instruct has no weights.",
+ "cap": 192,
+ "fixed_a_priori": "Fixed a priori, not tuned: a fork is a code position (outside comments and docstrings) where some other token has at least a quarter of the top token's probability (log ratio <= ln 4), up to 2 alternatives; flec/likelihood visit at most 4 forks in increasing-margin order; flec, likelihood and best_of_n may spend at most 2x the greedy program's generated length in extra model positions; contrast lambda = 1; plan allowance 96 tokens; cap 192 tokens as in the harness.",
+ "compute_unit": "model positions: prompt prefill + decode steps + auxiliary streams; KV reuse allowed for every arm; visible-test executions counted separately",
+ "evidence": "every arm sees the identical task text and the first assert (visible test); other asserts are hidden, used only for offline labels; the engine refuses any decoder input containing a hidden assert",
+ "submitted_answers_per_item": 1,
+ "stage": "transfer",
+ "run_dir": "results/local_runs/first-answer-stage3-humaneval-20261123-092b",
+ "panel": "experiments/first_answer/panels/humaneval40.json",
+ "arm": {
+  "fork_ratio": 1.3862943611198906,
+  "k_alt": 2,
+  "max_forks": 4,
+  "extra_budget_factor": 2.0,
+  "max_attempts": 16,
+  "plan_extra_tokens": 96,
+  "contrast_lambda": 1.0,
+  "seed": 20261123,
+  "sampler": {
+   "from": "results/local_runs/first-answer-stage1-sampler-20261123-092b/tuned_sampler.json"
+  },
+  "dry_run_sampler": {
+   "strategy": "min_p",
+   "params": {
+    "p_min": 0.1
+   },
+   "temperature": 0.7
+  }
+ },
+ "arms": [
+  "direct",
+  "plan",
+  "sampler",
+  "best_of_n",
+  "likelihood",
+  "flec"
+ ],
+ "variants": [
+  "base"
+ ],
+ "decision": {
+  "proposed": "flec",
+  "net_wins_min": {
+   "direct": 2,
+   "best_of_n": 2,
+   "likelihood": 2
+  },
+  "compute_tolerance_vs": {
+   "arm": "best_of_n",
+   "max_ratio": 1.15
+  }
+ },
+ "decision_rule": "Transfer holds if flec keeps net paired wins >= 2 (of 40) against direct, best_of_n and likelihood on HumanEval (docstring examples are the visible evidence).",
+ "purpose": "Separate task family. Run only after a positive Stage 2."
+}

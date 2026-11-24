@@ -54,3 +54,13 @@ runs/
 
 # Large EWT corpora if later copied into the data dir (not currently present)
 experiments/ewt/data/*.conllu
+
+# Local notebook bodies, device receipts and model cache (including partial downloads).
+*.ipynb
+.ipynb_checkpoints/
+numeric_receipts/
+results/model_cache/
+
+# Frozen benchmark snapshots stay on the device; the code and hashes are versioned.
+experiments/first_answer/panels/*.json
+experiments/first_answer_localized/dev24.json

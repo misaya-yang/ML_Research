@@ -22,7 +22,9 @@ class Hit:
     cost: int
 
 
-def _flip(probability, choose):
+def bernoulli(probability, choose):
+    if not 0 <= probability <= 1:
+        raise ValueError("Invalid Bernoulli probability")
     if probability == 0:
         return False
     if probability == 1:
@@ -30,9 +32,9 @@ def _flip(probability, choose):
     return choose(((True, probability), (False, 1 - probability)))
 
 
-def _last_mark(caps, choose):
+def last_positive_mark(caps, choose):
     for index in range(len(caps), 0, -1):
-        if _flip(caps[index - 1], choose):
+        if bernoulli(caps[index - 1], choose):
             return index
     return 0
 
@@ -60,7 +62,7 @@ def run_horizon(
     if logical_budget is not None and logical_budget < 0:
         raise ValueError("The logical budget must be nonnegative.")
 
-    horizon = _last_mark(caps, choose) if marked else len(caps)
+    horizon = last_positive_mark(caps, choose) if marked else len(caps)
     state, cost = initial_state, 0
     for step in range(1, horizon + 1):
         cap = caps[step - 1]
@@ -68,10 +70,10 @@ def run_horizon(
         if not 0 <= mass <= cap:
             raise ValueError("The carrier mass exceeds its certified cap.")
         if marked:
-            mark = step == horizon or _flip(cap, choose)
-            in_carrier = mark and _flip(mass / cap, choose)
+            mark = step == horizon or bernoulli(cap, choose)
+            in_carrier = mark and bernoulli(mass / cap, choose)
         else:
-            in_carrier = _flip(mass, choose)
+            in_carrier = bernoulli(mass, choose)
         action = draw_control(step, state, cost, in_carrier, choose)
         move = emit(step, state, cost, action, choose)
         if move.debit < 0:
@@ -151,7 +153,7 @@ def _adaptive_instance(caps, *, marked, budget):
         return choose(tuple((choice, Fraction(1, 2)) for choice in choices))
 
     def emit(step, state, cost, action, choose):
-        noise = int(_flip(Fraction(1, 3), choose))
+        noise = int(bernoulli(Fraction(1, 3), choose))
         next_state = (state + action + noise) % 3
         debit = 1 + (state + action) % 2
         payload = (action, noise) if action >= 2 and next_state == 0 else None
@@ -205,7 +207,7 @@ def _random_scan_instance(*, marked):
         return choose(tuple((site, Fraction(1, len(sites))) for site in sites))
 
     def emit(step, state, cost, site, choose):
-        draw = int(_flip(Fraction(1 + state[(site + 1) % len(state)], 3), choose))
+        draw = int(bernoulli(Fraction(1 + state[(site + 1) % len(state)], 3), choose))
         next_state = state[:site] + (draw,) + state[site + 1:]
         return Move(next_state, 1, None if violated_scope(next_state) else next_state)
 

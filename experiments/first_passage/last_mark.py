@@ -10,15 +10,7 @@ driver uses exact rational coins from marked_horizon.
 from fractions import Fraction
 from math import prod
 
-from marked_horizon import Hit, Move, RationalSampler, enumerate_horizon
-
-
-def bernoulli(p, choose):
-    if not 0 <= p <= 1:
-        raise ValueError("Invalid Bernoulli probability")
-    if p == 0 or p == 1:
-        return bool(p)
-    return choose(((True, p), (False, 1 - p)))
+from marked_horizon import Hit, Move, RationalSampler, bernoulli, enumerate_horizon, last_positive_mark
 
 
 def first_hit(caps, initial_state, ordinary_step, terminal_step, choose, *, logical_budget=None):
@@ -33,7 +25,7 @@ def first_hit(caps, initial_state, ordinary_step, terminal_step, choose, *, logi
         raise ValueError("Invalid public cap")
     if logical_budget is not None and logical_budget < 0:
         raise ValueError("Negative logical budget")
-    last = next((i for i in range(len(caps), 0, -1) if bernoulli(caps[i-1], choose)), 0)
+    last = last_positive_mark(caps, choose)
     state, spent = initial_state, 0
     for i in range(1, last + 1):
         move = (ordinary_step(i, state, spent, choose) if i < last
@@ -114,6 +106,15 @@ def check():
                                                                choose, logical_budget=budget))
         assert base == actual
         print(f"joint law: budget={budget}, outcomes={len(base)}, failure={base.get(None, 0)}")
+
+    def uncorrected(i, state, spent, cap, choose):
+        return ordinary(i, state, spent, choose)
+
+    reference, _ = enumerate_horizon(lambda choose: native(len(caps), initial, ordinary, choose, 6))
+    censored, _ = enumerate_horizon(lambda choose: first_hit(caps, initial, ordinary, uncorrected,
+                                                             choose, logical_budget=6))
+    assert censored[None] > reference[None]
+    print("uncorrected truncation increases failure:", censored[None], ">", reference[None])
 
     def metered(choose, mode):
         charged = Fraction(0)

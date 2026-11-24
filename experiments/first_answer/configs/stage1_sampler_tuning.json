@@ -1,0 +1,108 @@
+{
+ "model_dir": "/var/folders/py/yshkz8454g98pq1wc0rnw5pm0000gp/T/icml-m4-native.8t0fjn/qwen15-official",
+ "model": "Qwen/Qwen2.5-1.5B-Instruct (revision 989aa7980e4cf806f80c7fef2b1adb7bc71aa306 per STATUS_air_kaggle_zh.md), model.safetensors sha256 dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee, bf16, sdpa, MPS. The only local copy with weights sits in a macOS temp folder; ~/paper_project/models/Qwen2.5-1.5B-Instruct has no weights.",
+ "cap": 192,
+ "fixed_a_priori": "Fixed a priori, not tuned: a fork is a code position (outside comments and docstrings) where some other token has at least a quarter of the top token's probability (log ratio <= ln 4), up to 2 alternatives; flec/likelihood visit at most 4 forks in increasing-margin order; flec, likelihood and best_of_n may spend at most 2x the greedy program's generated length in extra model positions; contrast lambda = 1; plan allowance 96 tokens; cap 192 tokens as in the harness.",
+ "compute_unit": "model positions: prompt prefill + decode steps + auxiliary streams; KV reuse allowed for every arm; visible-test executions counted separately",
+ "evidence": "every arm sees the identical task text and the first assert (visible test); other asserts are hidden, used only for offline labels; the engine refuses any decoder input containing a hidden assert",
+ "submitted_answers_per_item": 1,
+ "stage": "tune",
+ "run_dir": "results/local_runs/first-answer-stage1-sampler-20261123-092b",
+ "panel": "experiments/first_answer/panels/dev16.json",
+ "arm": {
+  "fork_ratio": 1.3862943611198906,
+  "k_alt": 2,
+  "max_forks": 4,
+  "extra_budget_factor": 2.0,
+  "max_attempts": 16,
+  "plan_extra_tokens": 96,
+  "contrast_lambda": 1.0,
+  "seed": 20261123
+ },
+ "tuning_seeds": [
+  1,
+  2,
+  3
+ ],
+ "sampler_grid": [
+  {
+   "strategy": "greedy",
+   "params": {},
+   "temperature": 0.0
+  },
+  {
+   "strategy": "none",
+   "params": {},
+   "temperature": 0.2
+  },
+  {
+   "strategy": "none",
+   "params": {},
+   "temperature": 0.5
+  },
+  {
+   "strategy": "none",
+   "params": {},
+   "temperature": 0.8
+  },
+  {
+   "strategy": "min_p",
+   "params": {
+    "p_min": 0.05
+   },
+   "temperature": 0.7
+  },
+  {
+   "strategy": "min_p",
+   "params": {
+    "p_min": 0.1
+   },
+   "temperature": 0.7
+  },
+  {
+   "strategy": "min_p",
+   "params": {
+    "p_min": 0.2
+   },
+   "temperature": 1.0
+  },
+  {
+   "strategy": "fixed_margin",
+   "params": {
+    "margin": 1.0
+   },
+   "temperature": 1.0
+  },
+  {
+   "strategy": "fixed_margin",
+   "params": {
+    "margin": 2.0
+   },
+   "temperature": 0.7
+  },
+  {
+   "strategy": "top_p",
+   "params": {
+    "p": 0.9
+   },
+   "temperature": 0.7
+  },
+  {
+   "strategy": "top_nsigma",
+   "params": {
+    "n_sigma": 1.0
+   },
+   "temperature": 1.0
+  },
+  {
+   "strategy": "eta",
+   "params": {
+    "epsilon": 0.0009
+   },
+   "temperature": 1.0
+  }
+ ],
+ "selection_rule": "max total hidden-correct over 3 seeds x 16 development items; ties: lower temperature, then grid order",
+ "excluded": "top_no frequency (nu) variants: they need an external token-frequency table that is not on this machine, and the top_no Phase-0 pilot ended INSUFFICIENT with the shift pointing the opposite way to the implemented rule; not justified as a baseline",
+ "purpose": "Strongest development-tuned local sampler (top_no families plus eta-sampling) for the Stage 2 sampler and best_of_n arms."
+}
