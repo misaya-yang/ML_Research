@@ -1,0 +1,650 @@
+{
+ "name": "fresh40",
+ "salt": "speculative-powermh-fresh40-20261123",
+ "pool_size": 81,
+ "banned_count": 335,
+ "source": "evalplus/mbppplus local copy (same file as pilot40)",
+ "skipped_reference_failures": [],
+ "tasks": [
+  {
+   "task_id": "594",
+   "family": "mbppplus",
+   "text": "Write a function to find the difference of the first even and first odd number of a given list.",
+   "visible": [
+    "assert diff_even_odd([1,3,5,7,4,1,6,8])==3"
+   ],
+   "hidden": [
+    "assert diff_even_odd([1,2,3,4,5,6,7,8,9,10])==1",
+    "assert diff_even_odd([1,5,7,9,10])==9"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef diff_even_odd(list1):\n    first_even = next((el for el in list1 if el%2==0), -1)\n    first_odd = next((el for el in list1 if el%2!=0), -1)\n    return (first_even - first_odd)\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "166",
+   "family": "mbppplus",
+   "text": "Write a function that counts the number of pairs of integers in a list that xor to an even number.",
+   "visible": [
+    "assert find_even_pair([5, 4, 7, 2, 1]) == 4"
+   ],
+   "hidden": [
+    "assert find_even_pair([7, 2, 8, 1, 0, 5, 11]) == 9",
+    "assert find_even_pair([1, 2, 3]) == 1"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef find_even_pair(A): \n  if len(A) < 2: \n    return 0\n  return sum((a ^ b) % 2 == 0 for i, a in enumerate(A) for b in A[i + 1:])\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "557",
+   "family": "mbppplus",
+   "text": "Write a function to toggle the case of all characters in a string.",
+   "visible": [
+    "assert toggle_string(\"Python\")==(\"pYTHON\")"
+   ],
+   "hidden": [
+    "assert toggle_string(\"Pangram\")==(\"pANGRAM\")",
+    "assert toggle_string(\"LIttLE\")==(\"liTTle\")"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef toggle_string(string):\n return string.swapcase()\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "287",
+   "family": "mbppplus",
+   "text": "Write a python function takes in an integer n and returns the sum of squares of first n even natural numbers.",
+   "visible": [
+    "assert square_Sum(2) == 20"
+   ],
+   "hidden": [
+    "assert square_Sum(3) == 56",
+    "assert square_Sum(4) == 120"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef square_Sum(n):  \n    return 2 * n * (n + 1) * (2 * n + 1) /3\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "459",
+   "family": "mbppplus",
+   "text": "Write a function to remove uppercase substrings from a given string.",
+   "visible": [
+    "assert remove_uppercase('cAstyoUrFavoRitETVshoWs') == 'cstyoravoitshos'"
+   ],
+   "hidden": [
+    "assert remove_uppercase('wAtchTheinTernEtrAdIo') == 'wtchheinerntrdo'",
+    "assert remove_uppercase('VoicESeaRchAndreComMendaTionS') == 'oiceachndreomendaion'"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef remove_uppercase(str1):\n  return ''.join(c for c in str1 if c.islower())\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "437",
+   "family": "mbppplus",
+   "text": "Write a function to remove odd characters in a string.",
+   "visible": [
+    "assert remove_odd(\"python\")==(\"yhn\")"
+   ],
+   "hidden": [
+    "assert remove_odd(\"program\")==(\"rga\")",
+    "assert remove_odd(\"language\")==(\"agae\")"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef remove_odd(str1):\n    return str1[1::2]\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "297",
+   "family": "mbppplus",
+   "text": "Write a function to flatten a given nested list structure.",
+   "visible": [
+    "assert flatten_list([0, 10, [20, 30], 40, 50, [60, 70, 80], [90, 100, 110, 120]])==[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]"
+   ],
+   "hidden": [
+    "assert flatten_list([[10, 20], [40], [30, 56, 25], [10, 20], [33], [40]])==[10, 20, 40, 30, 56, 25, 10, 20, 33, 40]",
+    "assert flatten_list([[1,2,3], [4,5,6], [10,11,12], [7,8,9]])==[1, 2, 3, 4, 5, 6, 10, 11, 12, 7, 8, 9]"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef flatten_list(list1):\n\tresult = []\n\tfor item in list1:\n\t\tif isinstance(item, list):\n\t\t\tresult.extend(flatten_list(item))\n\t\telse:\n\t\t\tresult.append(item)\n\treturn result\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "589",
+   "family": "mbppplus",
+   "text": "Write a function to find perfect squares between two given numbers.",
+   "visible": [
+    "assert perfect_squares(1,30)==[1, 4, 9, 16, 25]"
+   ],
+   "hidden": [
+    "assert perfect_squares(50,100)==[64, 81, 100]",
+    "assert perfect_squares(100,200)==[100, 121, 144, 169, 196]"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\nimport math\ndef perfect_squares(a, b):\n    if a > b:\n        a, b = b, a\n    if b < 0:\n        return []\n    if a < 0:\n        a = 0\n    return list(filter(lambda x: math.sqrt(x).is_integer(), range(a, b+1)))\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "580",
+   "family": "mbppplus",
+   "text": "Write a function to remove uneven elements in the nested mixed tuple.",
+   "visible": [
+    "assert extract_even((4, 5, (7, 6, (2, 4)), 6, 8)) == (4, (6, (2, 4)), 6, 8)"
+   ],
+   "hidden": [
+    "assert extract_even((5, 6, (8, 7, (4, 8)), 7, 9)) == (6, (8, (4, 8)))",
+    "assert extract_even((5, 6, (9, 8, (4, 6)), 8, 10)) == (6, (8, (4, 6)), 8, 10)"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef even_ele(test_tuple, ): \n\tres = tuple() \n\tfor ele in test_tuple: \n\t\tif isinstance(ele, tuple): \n\t\t\tres += (even_ele(ele), ) \n\t\telif ele % 2 == 0: \n\t\t\tres += (ele, ) \n\treturn res \ndef extract_even(test_tuple):\n\treturn even_ele(test_tuple)\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "593",
+   "family": "mbppplus",
+   "text": "Write a function to remove leading zeroes from an ip address.",
+   "visible": [
+    "assert removezero_ip(\"216.08.094.196\")==('216.8.94.196')"
+   ],
+   "hidden": [
+    "assert removezero_ip(\"12.01.024\")==('12.1.24')",
+    "assert removezero_ip(\"216.08.094.0196\")==('216.8.94.196')"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\nimport re\ndef removezero_ip(ip):\n return re.sub('\\.[0]*', '.', ip)\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "125",
+   "family": "mbppplus",
+   "text": "Write a function to find the maximum difference between the number of 0s and number of 1s in any sub-string of the given binary string.",
+   "visible": [
+    "assert find_length(\"11000010001\") == 6"
+   ],
+   "hidden": [
+    "assert find_length(\"10111\") == 1",
+    "assert find_length(\"11011101100101\") == 2"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef find_length(string): \n\tcurrent_sum = 0\n\tmax_sum = 0\n\tfor c in string: \n\t\tcurrent_sum += 1 if c == '0' else -1\n\t\tif current_sum < 0: \n\t\t\tcurrent_sum = 0\n\t\tmax_sum = max(current_sum, max_sum) \n\treturn max_sum\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "296",
+   "family": "mbppplus",
+   "text": "Write a python function to count inversions in an array.",
+   "visible": [
+    "assert get_Inv_Count([1,20,6,4,5]) == 5"
+   ],
+   "hidden": [
+    "assert get_Inv_Count([1,2,1]) == 1",
+    "assert get_Inv_Count([1,2,5,6,1]) == 3"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef get_Inv_Count(arr): \n    # consider use merge sort, but for simplicity, use brute force\n    inv_count = 0\n    for i in range(len(arr)): \n        for j in range(i + 1, len(arr)): \n            if (arr[i] > arr[j]): \n                inv_count += 1\n    return inv_count \n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "599",
+   "family": "mbppplus",
+   "text": "Write a function to find sum and average of first n natural numbers.",
+   "visible": [
+    "assert sum_average(10)==(55, 5.5)"
+   ],
+   "hidden": [
+    "assert sum_average(15)==(120, 8.0)",
+    "assert sum_average(20)==(210, 10.5)"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef sum_average(number):\n   sum_ = sum(range(1, number+1))\n   average = sum_/number\n   return sum_, average\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "124",
+   "family": "mbppplus",
+   "text": "Write a function to get the angle of a complex number.",
+   "visible": [
+    "assert math.isclose(angle_complex(0,1j), 1.5707963267948966, rel_tol=0.001)"
+   ],
+   "hidden": [
+    "assert math.isclose(angle_complex(2,1j), 0.4636476090008061, rel_tol=0.001)",
+    "assert math.isclose(angle_complex(0,2j), 1.5707963267948966, rel_tol=0.001)"
+   ],
+   "setup": "import math",
+   "entry": null,
+   "reference": "\nimport cmath\ndef angle_complex(a,b):\n  angle=cmath.phase(a+b)\n  return angle\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "133",
+   "family": "mbppplus",
+   "text": "Write a function to calculate the sum of the negative numbers of a given list of numbers.",
+   "visible": [
+    "assert sum_negativenum([2, 4, -6, -9, 11, -12, 14, -5, 17])==-32"
+   ],
+   "hidden": [
+    "assert sum_negativenum([10,15,-14,13,-18,12,-20])==-52",
+    "assert sum_negativenum([19, -65, 57, 39, 152,-639, 121, 44, 90, -190])==-894"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef sum_negativenum(nums):\n  return sum(x for x in nums if x < 0)\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "300",
+   "family": "mbppplus",
+   "text": "Write a function to find the count of all binary sequences of length 2n such that sum of first n bits is same as sum of last n bits.",
+   "visible": [
+    "assert math.isclose(count_binary_seq(1), 2.0, rel_tol=0.001)"
+   ],
+   "hidden": [
+    "assert math.isclose(count_binary_seq(2), 6.0, rel_tol=0.001)",
+    "assert math.isclose(count_binary_seq(3), 20.0, rel_tol=0.001)"
+   ],
+   "setup": "import math",
+   "entry": null,
+   "reference": "\ndef count_binary_seq(n): \n\tnCr = 1\n\tres = 1\n\tfor r in range(1, n + 1): \n\t\tnCr = (nCr * (n + 1 - r)) / r \n\t\tres += nCr * nCr \n\treturn res \n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "458",
+   "family": "mbppplus",
+   "text": "Write a function to find the area of a rectangle.",
+   "visible": [
+    "assert rectangle_area(10,20)==200"
+   ],
+   "hidden": [
+    "assert rectangle_area(10,5)==50",
+    "assert rectangle_area(4,2)==8"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef rectangle_area(l,b):\n  return l * b\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "260",
+   "family": "mbppplus",
+   "text": "Write a function to find the nth newman\u2013shanks\u2013williams prime number.",
+   "visible": [
+    "assert newman_prime(3) == 7"
+   ],
+   "hidden": [
+    "assert newman_prime(4) == 17",
+    "assert newman_prime(5) == 41"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef newman_prime(n): \n\tif n == 0 or n == 1: \n\t\treturn 1\n\ta = 1\n\tb = 1\n\tc = 1\n\tfor _ in range(2, n + 1):\n\t\tc = 2 * b + a\n\t\ta = b\n\t\tb = c\n\treturn c\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "390",
+   "family": "mbppplus",
+   "text": "Write a function to apply a given format string to all of the elements in a list.",
+   "visible": [
+    "assert add_string([1,2,3,4],'temp{0}')==['temp1', 'temp2', 'temp3', 'temp4']"
+   ],
+   "hidden": [
+    "assert add_string(['a','b','c','d'], 'python{0}')==[ 'pythona', 'pythonb', 'pythonc', 'pythond']",
+    "assert add_string([5,6,7,8],'string{0}')==['string5', 'string6', 'string7', 'string8']"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef add_string(list_, string):\n    return [string.format(i) for i in  list_]\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "448",
+   "family": "mbppplus",
+   "text": "Write a function to calculate the sum of perrin numbers.",
+   "visible": [
+    "assert cal_sum(9) == 49"
+   ],
+   "hidden": [
+    "assert cal_sum(10) == 66",
+    "assert cal_sum(11) == 88"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef cal_sum(n): \n\ta = 3\n\tb = 0\n\tc = 2\n\tif (n == 0): \n\t\treturn 3\n\tif (n == 1): \n\t\treturn 3\n\tif (n == 2): \n\t\treturn 5\n\tsum = 5\n\twhile (n > 2): \n\t\td = a + b \n\t\tsum = sum + d \n\t\ta = b \n\t\tb = c \n\t\tc = d \n\t\tn = n - 1\n\treturn sum\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "109",
+   "family": "mbppplus",
+   "text": "Write a python function to find the number of numbers with an odd value when rotating a binary string the given number of times.",
+   "visible": [
+    "assert odd_Equivalent(\"011001\",6) == 3"
+   ],
+   "hidden": [
+    "assert odd_Equivalent(\"11011\",5) == 4",
+    "assert odd_Equivalent(\"1010\",4) == 2"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef odd_Equivalent(s,n): \n    count=0\n    for i in range(0,n): \n        if (s[i] == '1'): \n            count = count + 1\n    return count \n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "564",
+   "family": "mbppplus",
+   "text": "Write a python function which takes a list of integers and counts the number of possible unordered pairs where both elements are unequal.",
+   "visible": [
+    "assert count_Pairs([1,2,1],3) == 2"
+   ],
+   "hidden": [
+    "assert count_Pairs([1,1,1,1],4) == 0",
+    "assert count_Pairs([1,2,3,4,5],5) == 10"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef count_Pairs(arr,n): \n    cnt = 0; \n    for i in range(n): \n        for j in range(i + 1,n): \n            if (arr[i] != arr[j]): \n                cnt += 1; \n    return cnt; \n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "563",
+   "family": "mbppplus",
+   "text": "Write a function to extract values between quotation marks from a string.",
+   "visible": [
+    "assert extract_values('\"Python\", \"PHP\", \"Java\"')==['Python', 'PHP', 'Java']"
+   ],
+   "hidden": [
+    "assert extract_values('\"python\",\"program\",\"language\"')==['python','program','language']",
+    "assert extract_values('\"red\",\"blue\",\"green\",\"yellow\"')==['red','blue','green','yellow']"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\nimport re\ndef extract_values(text):\n return (re.findall(r'\"(.*?)\"', text))\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "101",
+   "family": "mbppplus",
+   "text": "Write a function to find the kth element in the given array using 1-based indexing.",
+   "visible": [
+    "assert kth_element([12,3,5,7,19], 2) == 3"
+   ],
+   "hidden": [
+    "assert kth_element([17,24,8,23], 3) == 8",
+    "assert kth_element([16,21,25,36,4], 4) == 36"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef kth_element(arr, k):\n  return arr[k-1]\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "168",
+   "family": "mbppplus",
+   "text": "Write a function to count the number of occurrences of a number in a given list.",
+   "visible": [
+    "assert frequency([1,2,3], 4) == 0"
+   ],
+   "hidden": [
+    "assert frequency([1,2,2,3,3,3,4], 3) == 3",
+    "assert frequency([0,1,2,3,1,2], 1) == 2"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef frequency(a,x): \n    return a.count(x)\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "470",
+   "family": "mbppplus",
+   "text": "Write a function to find the pairwise addition of the neighboring elements of the given tuple.",
+   "visible": [
+    "assert add_pairwise((1, 5, 7, 8, 10)) == (6, 12, 15, 18)"
+   ],
+   "hidden": [
+    "assert add_pairwise((2, 6, 8, 9, 11)) == (8, 14, 17, 20)",
+    "assert add_pairwise((3, 7, 9, 10, 12)) == (10, 16, 19, 22)"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef add_pairwise(test_tup):\n  return tuple(a + b for a, b in zip(test_tup, test_tup[1:]))\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "409",
+   "family": "mbppplus",
+   "text": "Write a function to find the minimum product from the pairs of tuples within a given list.",
+   "visible": [
+    "assert min_product_tuple([(2, 7), (2, 6), (1, 8), (4, 9)] )==8"
+   ],
+   "hidden": [
+    "assert min_product_tuple([(10,20), (15,2), (5,10)] )==30",
+    "assert min_product_tuple([(11,44), (10,15), (20,5), (12, 9)] )==100"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef min_product_tuple(list1):\n    return min(x * y for x, y in list1)\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "572",
+   "family": "mbppplus",
+   "text": "Write a python function to remove duplicate numbers from a given number of lists.",
+   "visible": [
+    "assert two_unique_nums([1,2,3,2,3,4,5]) == [1, 4, 5]"
+   ],
+   "hidden": [
+    "assert two_unique_nums([1,2,3,2,4,5]) == [1, 3, 4, 5]",
+    "assert two_unique_nums([1,2,3,4,5]) == [1, 2, 3, 4, 5]"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef two_unique_nums(nums):\n  return [n for n in nums if nums.count(n)==1]\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "270",
+   "family": "mbppplus",
+   "text": "Write a python function to find the sum of even numbers at even positions of a list.",
+   "visible": [
+    "assert sum_even_and_even_index([5, 6, 12, 1, 18, 8]) == 30"
+   ],
+   "hidden": [
+    "assert sum_even_and_even_index([3, 20, 17, 9, 2, 10, 18, 13, 6, 18]) == 26",
+    "assert sum_even_and_even_index([5, 6, 12, 1]) == 12"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef sum_even_and_even_index(arr):  \n    return sum(x for x in arr[::2] if x % 2 == 0)\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "560",
+   "family": "mbppplus",
+   "text": "Write a function to find the union of the elements of two given tuples and output them in sorted order.",
+   "visible": [
+    "assert union_elements((3, 4, 5, 6),(5, 7, 4, 10) ) == (3, 4, 5, 6, 7, 10)"
+   ],
+   "hidden": [
+    "assert union_elements((1, 2, 3, 4),(3, 4, 5, 6) ) == (1, 2, 3, 4, 5, 6)",
+    "assert union_elements((11, 12, 13, 14),(13, 15, 16, 17) ) == (11, 12, 13, 14, 15, 16, 17)"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef union_elements(test_tup1, test_tup2):\n  return tuple(sorted(set(test_tup1 + test_tup2)))\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "428",
+   "family": "mbppplus",
+   "text": "Write a function to sort the given array by using shell sort.",
+   "visible": [
+    "assert shell_sort([12, 23, 4, 5, 3, 2, 12, 81, 56, 95]) == [2, 3, 4, 5, 12, 12, 23, 56, 81, 95]"
+   ],
+   "hidden": [
+    "assert shell_sort([24, 22, 39, 34, 87, 73, 68]) == [22, 24, 34, 39, 68, 73, 87]",
+    "assert shell_sort([32, 30, 16, 96, 82, 83, 74]) == [16, 30, 32, 74, 82, 83, 96]"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef shell_sort(my_list):\n    gap = len(my_list) // 2\n    while gap > 0:\n        for i in range(gap, len(my_list)):\n            current_item = my_list[i]\n            j = i\n            while j >= gap and my_list[j - gap] > current_item:\n                my_list[j] = my_list[j - gap]\n                j -= gap\n            my_list[j] = current_item\n        gap //= 2\n    return my_list\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "88",
+   "family": "mbppplus",
+   "text": "Write a function to get the frequency of all the elements in a list, returned as a dictionary.",
+   "visible": [
+    "assert freq_count([10,10,10,10,20,20,20,20,40,40,50,50,30])==({10: 4, 20: 4, 40: 2, 50: 2, 30: 1})"
+   ],
+   "hidden": [
+    "assert freq_count([1,2,3,4,3,2,4,1,3,1,4])==({1:3, 2:2,3:3,4:3})",
+    "assert freq_count([5,6,7,4,9,10,4,5,6,7,9,5])==({10:1,5:3,6:2,7:2,4:2,9:2})"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\nimport collections\ndef freq_count(list1):\n  freq_count= collections.Counter(list1)\n  return freq_count\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "412",
+   "family": "mbppplus",
+   "text": "Write a python function to remove odd numbers from a given list.",
+   "visible": [
+    "assert remove_odd([1,2,3]) == [2]"
+   ],
+   "hidden": [
+    "assert remove_odd([2,4,6]) == [2,4,6]",
+    "assert remove_odd([10,20,3]) == [10,20]"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef remove_odd(l):\n    return [i for i in l if i % 2 == 0]\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "86",
+   "family": "mbppplus",
+   "text": "Write a function to find nth centered hexagonal number.",
+   "visible": [
+    "assert centered_hexagonal_number(10) == 271"
+   ],
+   "hidden": [
+    "assert centered_hexagonal_number(2) == 7",
+    "assert centered_hexagonal_number(9) == 217"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef centered_hexagonal_number(n):\n  return 3 * n * (n - 1) + 1\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "474",
+   "family": "mbppplus",
+   "text": "Write a function to replace characters in a string.",
+   "visible": [
+    "assert replace_char(\"polygon\",'y','l')==(\"pollgon\")"
+   ],
+   "hidden": [
+    "assert replace_char(\"character\",'c','a')==(\"aharaater\")",
+    "assert replace_char(\"python\",'l','a')==(\"python\")"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef replace_char(str1, ch, newch):\n    return str1.replace(ch, newch)\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "129",
+   "family": "mbppplus",
+   "text": "Write a function to calculate whether the matrix is a magic square.",
+   "visible": [
+    "assert magic_square_test([[7, 12, 1, 14], [2, 13, 8, 11], [16, 3, 10, 5], [9, 6, 15, 4]])==True"
+   ],
+   "hidden": [
+    "assert magic_square_test([[2, 7, 6], [9, 5, 1], [4, 3, 8]])==True",
+    "assert magic_square_test([[2, 7, 6], [9, 5, 1], [4, 3, 7]])==False"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef magic_square_test(my_matrix):\n    s = sum(my_matrix[0])\n    # row\n    if any(sum(row) != s for row in my_matrix):\n        return False\n    # column\n    if any(sum(row[i] for row in my_matrix) != s for i in range(len(my_matrix[0]))):\n        return False\n    # diagonal\n    if sum(my_matrix[i][i] for i in range(len(my_matrix))) != s:\n        return False\n    # anti-diagonal\n    if sum(my_matrix[i][len(my_matrix) - i - 1] for i in range(len(my_matrix))) != s:\n        return False\n    return True\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "116",
+   "family": "mbppplus",
+   "text": "Write a function to convert a given tuple of positive integers into a single integer.",
+   "visible": [
+    "assert tuple_to_int((1,2,3))==123"
+   ],
+   "hidden": [
+    "assert tuple_to_int((4,5,6))==456",
+    "assert tuple_to_int((5,6,7))==567"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef tuple_to_int(nums):\n    return int(''.join(map(str,nums)))\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "419",
+   "family": "mbppplus",
+   "text": "Write a function to round every number of a given list of numbers and print the total sum multiplied by the length of the list.",
+   "visible": [
+    "assert round_and_sum([22.4, 4.0, -16.22, -9.10, 11.00, -12.22, 14.20, -5.20, 17.50])==243"
+   ],
+   "hidden": [
+    "assert round_and_sum([5,2,9,24.3,29])==345",
+    "assert round_and_sum([25.0,56.7,89.2])==513"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef round_and_sum(list1):\n  l = len(list1)\n  return sum([round(i) for i in list1]) * l\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "269",
+   "family": "mbppplus",
+   "text": "Write a function to find the ascii value of a character.",
+   "visible": [
+    "assert ascii_value('A')==65"
+   ],
+   "hidden": [
+    "assert ascii_value('R')==82",
+    "assert ascii_value('S')==83"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef ascii_value(k):\n  return ord(k)\n",
+   "raw_prompt": null
+  },
+  {
+   "task_id": "450",
+   "family": "mbppplus",
+   "text": "Write a function to extract specified size of strings from a given list of string values.",
+   "visible": [
+    "assert extract_string(['Python', 'list', 'exercises', 'practice', 'solution'] ,8)==['practice', 'solution']"
+   ],
+   "hidden": [
+    "assert extract_string(['Python', 'list', 'exercises', 'practice', 'solution'] ,6)==['Python']",
+    "assert extract_string(['Python', 'list', 'exercises', 'practice', 'solution'] ,9)==['exercises']"
+   ],
+   "setup": "",
+   "entry": null,
+   "reference": "\ndef extract_string(str1, l):\n    return [e for e in str1 if len(e) == l] \n",
+   "raw_prompt": null
+  }
+ ]
+}

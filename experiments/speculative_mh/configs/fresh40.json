@@ -1,0 +1,18 @@
+{
+  "name": "speculative-powermh-fresh40-v1",
+  "model_dir": "/var/folders/py/yshkz8454g98pq1wc0rnw5pm0000gp/T/icml-m4-native.8t0fjn/qwen15-official",
+  "model_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+  "panel": "panels/fresh40.json",
+  "policy": "single-block fixed-horizon uniform-cut PowerMH (Karan-Du kernel, PreSTO eq. 6), absorbing EOS, first public-test pass over committed states",
+  "T": 192, "K": 16, "alpha": 4.0, "seed": 20261123,
+  "dtype": "float32", "device": "mps",
+  "serial_modes": ["serial_eager", "serial_lazy"],
+  "tree_modes": ["tree_eager", "tree_lazy", "tree_safe", "tree_coin"],
+  "tree_shapes": ["compact", "fixed"],
+  "direct_policies": [
+    {"name": "greedy_then_t1", "alpha": 1.0, "greedy_first": true},
+    {"name": "q_alpha", "alpha": 4.0, "greedy_first": false}
+  ],
+  "direct_attempts": 16,
+  "run_dir": "../../results/local_runs/speculative-mh-fresh40-20261123"
+}
