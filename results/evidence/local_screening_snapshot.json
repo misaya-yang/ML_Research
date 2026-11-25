@@ -1,0 +1,69 @@
+{
+  "math_cap": {
+    "arms": {
+      "lowtemp-init": {
+        "eligible_cap_abstentions": 9,
+        "eligible_final_status_counts": {
+          "correct": 4,
+          "no_box": 2,
+          "wrong": 3
+        },
+        "frozen_inputs": 20,
+        "original_status_counts": {
+          "correct": 9,
+          "no_box": 10,
+          "wrong": 1
+        },
+        "strict_eligible_endpoint_correct": 3
+      },
+      "smc64": {
+        "eligible_cap_abstentions": 9,
+        "eligible_final_status_counts": {
+          "correct": 5,
+          "no_box": 1,
+          "wrong": 3
+        },
+        "frozen_inputs": 20,
+        "original_status_counts": {
+          "correct": 9,
+          "no_box": 10,
+          "wrong": 1
+        },
+        "strict_eligible_endpoint_correct": 5
+      }
+    },
+    "limitations": [
+      "Selected SMC64 prefixes are followed as single q_alpha=4 trajectories; no T2048 population, resampling, or re-selection is run.",
+      "A new correct boxed endpoint is evidence that a particular old abstention was recoverable by more continuation; it is not a counterfactual estimate of the native longer-horizon SMC outcome.",
+      "One prespecified tail per prefix cannot establish that persistent abstentions are irrecoverable.",
+      "No overall after-diagnostic accuracy is reported for the mixture of reused and extended outputs."
+    ],
+    "local_source": "math-cap-continuation-20261124/offline_scores.json",
+    "scope": "Conditional completion of old selected cap-abstentions. Unchanged outputs are bookkeeping, not an estimate of native T2048 policy accuracy.",
+    "sha256": "135a73349265991eb179e148ad1406e524400c906a86dfe592a29126175ec718"
+  },
+  "pgcd_cpu": {
+    "aggregate": {
+      "cases_with_lower_candidate_mean_warm_time": 14,
+      "completed_case_count": 16,
+      "ratio_of_summed_case_mean_cold_equivalents": 0.9380078370176447,
+      "ratio_of_summed_case_mean_warm_times": 0.9340228573166169
+    },
+    "local_source": "pgcd-finite-policy-20261124/cpu_confirmation_complete/pgcd_work/confirm16_cpu_impact_resume.combined_summary.json",
+    "matched_same_device_checks": 64,
+    "sha256": "e2b8d5aab1a46bb5b48773417ad1652de2d183e37efe150d42d02cb9a5355cd6",
+    "total_same_device_checks": 64
+  },
+  "pgcd_m4": {
+    "aggregate": {
+      "cases_with_lower_candidate_mean_warm_time": 6,
+      "completed_case_count": 16,
+      "ratio_of_summed_case_mean_cold_equivalents": 0.7465283914880325,
+      "ratio_of_summed_case_mean_warm_times": 0.7006201376055929
+    },
+    "local_source": "pgcd-finite-policy-20261124/confirm16_mps_impact.summary.json",
+    "matched_same_device_checks": 64,
+    "sha256": "6ceace0b171535be2497fca3afcf077396b6f4583f2883f8aec74938f510f70f",
+    "total_same_device_checks": 64
+  }
+}

@@ -2,7 +2,7 @@
 
 Claude, 2026-11-23.
 
-**Status.** The theorem and proofs are in [theory/proofs/speculative_first_passage.md](../../theory/proofs/speculative_first_passage.md). The code, tests and native paired results are under `experiments/speculative_mh/` and `results/local_runs/speculative-mh-*`. Nothing is committed.
+**Status.** The theorem and proofs are in [theory/proofs/speculative_first_passage.md](../../theory/proofs/speculative_first_passage.md). The code and tests are tracked under `experiments/speculative_mh/`. Raw paired recordings remain local under `results/local_runs/speculative-mh-*` and do not ship with a Git clone. See the [evidence index](../../RESEARCH_INDEX.md) for scope and limits.
 
 ## 1. The question, and the answer
 

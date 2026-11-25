@@ -1,0 +1,4 @@
+# Preserve the original trailing blank line: the replay verifies the file's SHA-256.
+code/fixed_verify_k.py whitespace=-blank-at-eof
+code/*.py -text
+raw/*.jsonl -text

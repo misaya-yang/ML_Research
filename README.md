@@ -1,24 +1,11 @@
-# Cold-Start IMH Audit
+# ICML 2027：LLM 解码与采样研究
 
-Living research workspace for error guarantees on a fixed proposal-start IMH chain. Not a submission snapshot.
+先看[研究证据索引](RESEARCH_INDEX.md)。这里是研究工作区，不是投稿版本。有数学证明、真实运行、离线复算和失败记录。四类证据不能混用。
 
-## Start here
+- [首次验证搜索：原问题与预算](RESEARCH_QUESTION.md)
+- [MBPP56：祖先证书、冻结回执和复算](results/first_passage/mbpp56_audit/README.md)
+- [冻结模型：单次生成与零训练采样](results/evidence/single_pass.md)
+- [实验入口与本机依赖](EXPERIMENTS_README.md)
+- [冷启动 IMH：旧研究线](paper/research_notes/research_brief_zh.md) · [证明](theory/proofs/three_channels.md) · [披露对照](results/disclosure/README.md)
 
-- [Current research brief](paper/research_notes/research_brief_zh.md)
-- [ICML 2027 roadmap](paper/research_notes/roadmap_zh.md)
-- [Three-channel synthesis and paper-level theorems](theory/proofs/three_channels.md)
-- [Experiment plan for the experiment agent](experiments/EXPERIMENT_PLAN_zh.md)
-- [Fixed-target pointwise power and the equality boundary](theory/proofs/fixed_target_power.md)
-- [Long-window finite-budget frontier](theory/proofs/long_horizon_two_source_frontier.md)
-- [Same-chain disclosure results and white-box controls](results/disclosure/README.md)
-- [CPU reproduction](experiments/REPRODUCE_zh.md) and [cap-equality finite check](experiments/finite_state/cap_equality.py) (mpmath)
-- [Manuscript versions](paper/manuscripts/README.md)
-
-## Layout
-
-- theory/: proofs and related work.
-- experiments/: CPU code, input data references and run instructions.
-- results/: paired ledgers and diagnostics by topic. Replays must not overwrite frozen output.
-- paper/: manuscripts, current research notes and source links.
-
-Keep one current note and evidence table per topic. Do not make copies of the whole project or parallel date-stamped versions.
+`theory/` 是证明；`experiments/` 是实验入口；`results/` 是冻结回执及索引；`paper/` 是笔记和旧稿。新运行写进忽略的 `results/local_runs/`，不要覆盖冻结证据。

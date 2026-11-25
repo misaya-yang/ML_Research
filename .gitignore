@@ -64,3 +64,9 @@ results/model_cache/
 # Frozen benchmark snapshots stay on the device; the code and hashes are versioned.
 experiments/first_answer/panels/*.json
 experiments/first_answer_localized/dev24.json
+
+# Local inference artifacts. Keep compact JSON/JSONL and evidence logs eligible.
+*.gguf
+*.gguf.part
+*.safetensors.part
+.ruff_cache/

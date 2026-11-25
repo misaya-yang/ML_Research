@@ -9,3 +9,5 @@ We ask whether a fixed policy can obtain its first verified result within both a
 These results apply only to the finite archived graphs and the specified allowance for one additional false positive. They do not cover multiple label errors, and we have not independently checked all remaining labels for semantic correctness. Fewer queries do not establish lower production latency, lower bills, or replication on independent external tasks. See the [core theory and interface requirements](../../theory/proofs/first_passage_core.md).
 
 The [forward-only search results](forward_search.md) give the one-sided stopping theorem, measured target-model work, and comparisons against practical alternatives on program generation and graph coloring.
+
+For the separate real MBPP56 K4 workload, see the [reader-independent certificate replay](mbpp56_audit/README.md). Do not combine that timing comparison with the finite-graph certification here.

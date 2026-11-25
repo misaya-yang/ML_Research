@@ -1,0 +1,660 @@
+{
+  "receipt_cases": 56,
+  "totals": {
+    "full": {
+      "prefill_positions": 6117,
+      "executed_decode_positions": 122342,
+      "decode_calls": 4854,
+      "sampled_tokens": 236215,
+      "end_to_end_s": 391.3328484140802,
+      "decode_forward_s": 318.4239953579381,
+      "certificate_s": 0.0,
+      "public_verify_s": 35.017949922941625
+    },
+    "terminal": {
+      "prefill_positions": 6117,
+      "executed_decode_positions": 121235,
+      "decode_calls": 4860,
+      "sampled_tokens": 227932,
+      "end_to_end_s": 386.7236200387124,
+      "decode_forward_s": 314.639898969559,
+      "certificate_s": 0.0,
+      "public_verify_s": 34.915008324664086
+    },
+    "across": {
+      "prefill_positions": 6117,
+      "executed_decode_positions": 102524,
+      "decode_calls": 3979,
+      "sampled_tokens": 204499,
+      "end_to_end_s": 323.276461167261,
+      "decode_forward_s": 256.4475762168877,
+      "certificate_s": 0.7029587898869067,
+      "public_verify_s": 34.86796062462963
+    }
+  },
+  "conservative_whole_map_lower_bound": {
+    "n": 32,
+    "task_ids": [
+      81,
+      89,
+      90,
+      91,
+      102,
+      104,
+      113,
+      161,
+      174,
+      184,
+      219,
+      226,
+      228,
+      255,
+      272,
+      275,
+      284,
+      293,
+      302,
+      322,
+      360,
+      364,
+      378,
+      383,
+      394,
+      404,
+      414,
+      421,
+      425,
+      462,
+      487,
+      496
+    ],
+    "decode_positions_saved": 14058,
+    "decode_calls_saved": 556,
+    "fraction_of_full_decode_positions": 0.11490739075705808,
+    "fraction_of_observed_across_decode_position_reduction": 0.709355131698456,
+    "observed_subset_totals": {
+      "full": {
+        "prefill_positions": 3553,
+        "executed_decode_positions": 59628,
+        "decode_calls": 2016,
+        "sampled_tokens": 99245,
+        "end_to_end_s": 178.0129792492371,
+        "decode_forward_s": 140.8319409058895,
+        "certificate_s": 0.0,
+        "public_verify_s": 18.251598255243152
+      },
+      "terminal": {
+        "prefill_positions": 3553,
+        "executed_decode_positions": 59628,
+        "decode_calls": 2016,
+        "sampled_tokens": 99245,
+        "end_to_end_s": 177.29034162242897,
+        "decode_forward_s": 140.28894082456827,
+        "certificate_s": 0.0,
+        "public_verify_s": 18.118939202511683
+      },
+      "across": {
+        "prefill_positions": 3553,
+        "executed_decode_positions": 45570,
+        "decode_calls": 1460,
+        "sampled_tokens": 84783,
+        "end_to_end_s": 135.560021789046,
+        "decode_forward_s": 102.69004002166912,
+        "certificate_s": 0.3684951679315418,
+        "public_verify_s": 17.78952804324217
+      }
+    },
+    "meaning": "Receipt- and source-supported omission of model work before any terminal-reader demand. Conditional on valid historical certificates and the common prefix oracle; not a replay/reverification of absent numeric intervals.",
+    "counterfactual_accounting_only_if_keeping_just_these_certificates": {
+      "decode_positions": 108284,
+      "decode_calls": 4298,
+      "wall_time_s": null,
+      "weighted_correctness": null
+    },
+    "decode_calls_denominator_full": 4854,
+    "total_model_calls_denominator_full_including_prefill": 4910,
+    "observed_total_decode_call_saving": 875,
+    "fraction_of_full_decode_calls": 0.11454470539761022,
+    "fraction_of_full_model_calls_including_prefill": 0.11323828920570264,
+    "fraction_of_observed_across_decode_call_reduction": 0.6354285714285715,
+    "decode_positions_denominator_full": 122342
+  },
+  "additional_complete_slot_map_certificate": {
+    "task": 468,
+    "checks": {
+      "all_64_children_exact": true,
+      "common_t": true,
+      "common_checkpoint": true,
+      "forced_resampling": true,
+      "unchanged_unknown": true,
+      "five_unique_parents": true,
+      "no_decode_after_first_certificate": true,
+      "full_and_terminal_same_positions": true
+    },
+    "t": 119,
+    "s": 128,
+    "parent_map": [
+      45,
+      45,
+      45,
+      45,
+      45,
+      45,
+      45,
+      45,
+      45,
+      45,
+      45,
+      45,
+      45,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      47,
+      47,
+      47,
+      47,
+      47,
+      47,
+      47,
+      47,
+      47,
+      47,
+      47,
+      47,
+      47,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "decode_positions_saved": 305,
+    "decode_calls_saved": 9,
+    "full_end_to_end_s": 11.782934707822278,
+    "across_end_to_end_s": 12.496172165963799,
+    "meaning": "64 exact individual certificates at one unchanged state jointly define the complete map. Five known parents are absorbed; no code-only equivalence is used. This supports another reader-independent work reduction, but observed wall time is slower.",
+    "combined_supported_decode_position_lower_bound": 14363,
+    "combined_supported_decode_call_lower_bound": 565
+  },
+  "per_task": [
+    {
+      "task": 81,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 650,
+      "observed_decode_call_difference": 37,
+      "independent_lower_bound_decode_positions": 650,
+      "independent_lower_bound_decode_calls": 37
+    },
+    {
+      "task": 89,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 189,
+      "observed_decode_call_difference": 5,
+      "independent_lower_bound_decode_positions": 189,
+      "independent_lower_bound_decode_calls": 5
+    },
+    {
+      "task": 90,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 382,
+      "observed_decode_call_difference": 19,
+      "independent_lower_bound_decode_positions": 382,
+      "independent_lower_bound_decode_calls": 19
+    },
+    {
+      "task": 91,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 349,
+      "observed_decode_call_difference": 16,
+      "independent_lower_bound_decode_positions": 349,
+      "independent_lower_bound_decode_calls": 16
+    },
+    {
+      "task": 102,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 86,
+      "observed_decode_call_difference": 4,
+      "independent_lower_bound_decode_positions": 86,
+      "independent_lower_bound_decode_calls": 4
+    },
+    {
+      "task": 104,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 315,
+      "observed_decode_call_difference": 32,
+      "independent_lower_bound_decode_positions": 315,
+      "independent_lower_bound_decode_calls": 32
+    },
+    {
+      "task": 113,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 78,
+      "observed_decode_call_difference": 3,
+      "independent_lower_bound_decode_positions": 78,
+      "independent_lower_bound_decode_calls": 3
+    },
+    {
+      "task": 115,
+      "category": "no_event",
+      "observed_decode_position_difference": 0,
+      "observed_decode_call_difference": 0,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 130,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 318,
+      "observed_decode_call_difference": 63,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 131,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 36,
+      "observed_decode_call_difference": 12,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 152,
+      "category": "no_event",
+      "observed_decode_position_difference": 1,
+      "observed_decode_call_difference": -64,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 161,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 559,
+      "observed_decode_call_difference": 33,
+      "independent_lower_bound_decode_positions": 559,
+      "independent_lower_bound_decode_calls": 33
+    },
+    {
+      "task": 174,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 249,
+      "observed_decode_call_difference": 10,
+      "independent_lower_bound_decode_positions": 249,
+      "independent_lower_bound_decode_calls": 10
+    },
+    {
+      "task": 175,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 3,
+      "observed_decode_call_difference": 1,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 184,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 1675,
+      "observed_decode_call_difference": 41,
+      "independent_lower_bound_decode_positions": 1675,
+      "independent_lower_bound_decode_calls": 41
+    },
+    {
+      "task": 185,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 111,
+      "observed_decode_call_difference": -207,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 192,
+      "category": "no_event",
+      "observed_decode_position_difference": 0,
+      "observed_decode_call_difference": 0,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 205,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": -12,
+      "observed_decode_call_difference": -12,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 206,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 30,
+      "observed_decode_call_difference": 30,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 219,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 455,
+      "observed_decode_call_difference": 9,
+      "independent_lower_bound_decode_positions": 455,
+      "independent_lower_bound_decode_calls": 9
+    },
+    {
+      "task": 226,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 483,
+      "observed_decode_call_difference": 19,
+      "independent_lower_bound_decode_positions": 483,
+      "independent_lower_bound_decode_calls": 19
+    },
+    {
+      "task": 228,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 717,
+      "observed_decode_call_difference": 12,
+      "independent_lower_bound_decode_positions": 717,
+      "independent_lower_bound_decode_calls": 12
+    },
+    {
+      "task": 255,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 916,
+      "observed_decode_call_difference": 17,
+      "independent_lower_bound_decode_positions": 916,
+      "independent_lower_bound_decode_calls": 17
+    },
+    {
+      "task": 256,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 45,
+      "observed_decode_call_difference": 45,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 272,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 177,
+      "observed_decode_call_difference": 23,
+      "independent_lower_bound_decode_positions": 177,
+      "independent_lower_bound_decode_calls": 23
+    },
+    {
+      "task": 275,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 847,
+      "observed_decode_call_difference": 16,
+      "independent_lower_bound_decode_positions": 847,
+      "independent_lower_bound_decode_calls": 16
+    },
+    {
+      "task": 284,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 74,
+      "observed_decode_call_difference": 23,
+      "independent_lower_bound_decode_positions": 74,
+      "independent_lower_bound_decode_calls": 23
+    },
+    {
+      "task": 293,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 316,
+      "observed_decode_call_difference": 8,
+      "independent_lower_bound_decode_positions": 316,
+      "independent_lower_bound_decode_calls": 8
+    },
+    {
+      "task": 302,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 1134,
+      "observed_decode_call_difference": 20,
+      "independent_lower_bound_decode_positions": 1134,
+      "independent_lower_bound_decode_calls": 20
+    },
+    {
+      "task": 317,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 32,
+      "observed_decode_call_difference": 16,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 322,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 1107,
+      "observed_decode_call_difference": 21,
+      "independent_lower_bound_decode_positions": 1107,
+      "independent_lower_bound_decode_calls": 21
+    },
+    {
+      "task": 360,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 195,
+      "observed_decode_call_difference": 5,
+      "independent_lower_bound_decode_positions": 195,
+      "independent_lower_bound_decode_calls": 5
+    },
+    {
+      "task": 364,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 380,
+      "observed_decode_call_difference": 7,
+      "independent_lower_bound_decode_positions": 380,
+      "independent_lower_bound_decode_calls": 7
+    },
+    {
+      "task": 366,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 12,
+      "observed_decode_call_difference": 0,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 367,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 0,
+      "observed_decode_call_difference": -3,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 371,
+      "category": "no_event",
+      "observed_decode_position_difference": 0,
+      "observed_decode_call_difference": 0,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 378,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 348,
+      "observed_decode_call_difference": 34,
+      "independent_lower_bound_decode_positions": 348,
+      "independent_lower_bound_decode_calls": 34
+    },
+    {
+      "task": 380,
+      "category": "no_future_resampling",
+      "observed_decode_position_difference": 789,
+      "observed_decode_call_difference": 128,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 383,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 126,
+      "observed_decode_call_difference": 3,
+      "independent_lower_bound_decode_positions": 126,
+      "independent_lower_bound_decode_calls": 3
+    },
+    {
+      "task": 394,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 156,
+      "observed_decode_call_difference": 6,
+      "independent_lower_bound_decode_positions": 156,
+      "independent_lower_bound_decode_calls": 6
+    },
+    {
+      "task": 396,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 1753,
+      "observed_decode_call_difference": 53,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 404,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 60,
+      "observed_decode_call_difference": 31,
+      "independent_lower_bound_decode_positions": 60,
+      "independent_lower_bound_decode_calls": 31
+    },
+    {
+      "task": 414,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 339,
+      "observed_decode_call_difference": 29,
+      "independent_lower_bound_decode_positions": 339,
+      "independent_lower_bound_decode_calls": 29
+    },
+    {
+      "task": 421,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 472,
+      "observed_decode_call_difference": 13,
+      "independent_lower_bound_decode_positions": 472,
+      "independent_lower_bound_decode_calls": 13
+    },
+    {
+      "task": 425,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 474,
+      "observed_decode_call_difference": 19,
+      "independent_lower_bound_decode_positions": 474,
+      "independent_lower_bound_decode_calls": 19
+    },
+    {
+      "task": 427,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 461,
+      "observed_decode_call_difference": 50,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 438,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 0,
+      "observed_decode_call_difference": 0,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 449,
+      "category": "no_event",
+      "observed_decode_position_difference": 915,
+      "observed_decode_call_difference": 31,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 453,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 47,
+      "observed_decode_call_difference": 47,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 462,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 539,
+      "observed_decode_call_difference": 14,
+      "independent_lower_bound_decode_positions": 539,
+      "independent_lower_bound_decode_calls": 14
+    },
+    {
+      "task": 468,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 305,
+      "observed_decode_call_difference": 9,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 483,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 165,
+      "observed_decode_call_difference": 44,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 487,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 92,
+      "observed_decode_call_difference": 24,
+      "independent_lower_bound_decode_positions": 92,
+      "independent_lower_bound_decode_calls": 24
+    },
+    {
+      "task": 496,
+      "category": "whole_parent_map",
+      "observed_decode_position_difference": 119,
+      "observed_decode_call_difference": 3,
+      "independent_lower_bound_decode_positions": 119,
+      "independent_lower_bound_decode_calls": 3
+    },
+    {
+      "task": 497,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 625,
+      "observed_decode_call_difference": 26,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    },
+    {
+      "task": 508,
+      "category": "individual_or_code_equivalence",
+      "observed_decode_position_difference": 124,
+      "observed_decode_call_difference": 50,
+      "independent_lower_bound_decode_positions": 0,
+      "independent_lower_bound_decode_calls": 0
+    }
+  ]
+}
