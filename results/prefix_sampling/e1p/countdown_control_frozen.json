@@ -1,0 +1,333 @@
+{
+  "checkpoint": "cached Qwen3-1.7B 4-bit",
+  "not_original_checkpoint": true,
+  "source": "https://arxiv.org/html/2607.01179v1",
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "cap": 32,
+  "data": [
+    {
+      "id": "cd00",
+      "numbers": [
+        56,
+        48,
+        38
+      ],
+      "target": 66,
+      "set": "pilot"
+    },
+    {
+      "id": "cd01",
+      "numbers": [
+        63,
+        50,
+        37
+      ],
+      "target": 50,
+      "set": "pilot"
+    },
+    {
+      "id": "cd02",
+      "numbers": [
+        79,
+        72,
+        63
+      ],
+      "target": 56,
+      "set": "pilot"
+    },
+    {
+      "id": "cd03",
+      "numbers": [
+        81,
+        18,
+        28
+      ],
+      "target": 71,
+      "set": "pilot"
+    },
+    {
+      "id": "cd04",
+      "numbers": [
+        60,
+        13,
+        40
+      ],
+      "target": 33,
+      "set": "pilot"
+    },
+    {
+      "id": "cd05",
+      "numbers": [
+        72,
+        51,
+        47
+      ],
+      "target": 76,
+      "set": "pilot"
+    },
+    {
+      "id": "cd06",
+      "numbers": [
+        72,
+        61,
+        56
+      ],
+      "target": 77,
+      "set": "pilot"
+    },
+    {
+      "id": "cd07",
+      "numbers": [
+        43,
+        86,
+        47
+      ],
+      "target": 82,
+      "set": "pilot"
+    },
+    {
+      "id": "cd08",
+      "numbers": [
+        54,
+        15,
+        21
+      ],
+      "target": 60,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd09",
+      "numbers": [
+        50,
+        62,
+        57
+      ],
+      "target": 69,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd10",
+      "numbers": [
+        71,
+        87,
+        55
+      ],
+      "target": 39,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd11",
+      "numbers": [
+        73,
+        34,
+        55
+      ],
+      "target": 94,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd12",
+      "numbers": [
+        21,
+        44,
+        75
+      ],
+      "target": 52,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd13",
+      "numbers": [
+        66,
+        12,
+        31
+      ],
+      "target": 85,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd14",
+      "numbers": [
+        83,
+        68,
+        87
+      ],
+      "target": 72,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd15",
+      "numbers": [
+        50,
+        43,
+        39
+      ],
+      "target": 46,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd16",
+      "numbers": [
+        71,
+        10,
+        11
+      ],
+      "target": 72,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd17",
+      "numbers": [
+        24,
+        60,
+        48
+      ],
+      "target": 12,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd18",
+      "numbers": [
+        68,
+        46,
+        58
+      ],
+      "target": 80,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd19",
+      "numbers": [
+        67,
+        21,
+        69
+      ],
+      "target": 19,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd20",
+      "numbers": [
+        65,
+        34,
+        88
+      ],
+      "target": 11,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd21",
+      "numbers": [
+        51,
+        31,
+        56
+      ],
+      "target": 76,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd22",
+      "numbers": [
+        73,
+        64,
+        56
+      ],
+      "target": 65,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd23",
+      "numbers": [
+        87,
+        33,
+        54
+      ],
+      "target": 66,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd24",
+      "numbers": [
+        58,
+        71,
+        75
+      ],
+      "target": 54,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd25",
+      "numbers": [
+        22,
+        41,
+        13
+      ],
+      "target": 32,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd26",
+      "numbers": [
+        81,
+        55,
+        48
+      ],
+      "target": 22,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd27",
+      "numbers": [
+        63,
+        45,
+        81
+      ],
+      "target": 27,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd28",
+      "numbers": [
+        71,
+        64,
+        23
+      ],
+      "target": 30,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd29",
+      "numbers": [
+        18,
+        26,
+        70
+      ],
+      "target": 78,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd30",
+      "numbers": [
+        16,
+        85,
+        51
+      ],
+      "target": 50,
+      "set": "confirmation"
+    },
+    {
+      "id": "cd31",
+      "numbers": [
+        41,
+        83,
+        14
+      ],
+      "target": 56,
+      "set": "confirmation"
+    }
+  ],
+  "contract": "synthetic three-number +/- generation with mixed allowed operations, strict arithmetic multiset; separate local control, not paper's SFT model or original data",
+  "gate": "Pilot only: >=40% parsed; .10<= pass@1 <=.80. If passed, fixed confirm 24 questions, 2 independent groups of 8 per arm.",
+  "prompt": "two dialogue examples then native nonthinking chat, assistant prefill Equation: form"
+}

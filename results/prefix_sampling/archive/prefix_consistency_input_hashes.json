@@ -1,0 +1,21 @@
+{
+  "doi": "10.5281/zenodo.20082164",
+  "layout_sha256": {
+    "external_aime/_init.jsonl": "65afc5b26abf6cee8a36448206d3565a1a68ed0cb26c31c6be197a2bdd9c4072",
+    "external_aime/_rm25pct_full_x3.jsonl": "f7ab621ec6d95ba3fab2415f772f6142def525130a1e04a8e3d338b5ca4f9538",
+    "external_aime/_rm50pct_full_x3.jsonl": "91757f94807f81495af6cb5bb3f0abf4731b1710edbe578138a66bf48ebfc9c8",
+    "external_aime/_rm75pct_full_x3.jsonl": "891098d243efe4fe4960ff351535325dff5650eb84e62884a9b1b5b397d11587",
+    "external_multi/Ministral-3-14B-Reasoning-2512_aime2025_jsonl/_init.jsonl": "4c38a40d58e650b0892c08075c007aa0ac26c23160dae80ad0732cdbf7d96ab7",
+    "external_multi/Ministral-3-14B-Reasoning-2512_aime2025_jsonl/_rm25pct_full_x1.jsonl": "9e83ffcae519ea8efd42145042e75c31a11d36451f4e54c4df1c3250efe54723",
+    "external_multi/Nemotron-3-Nano-30B-A3B_aime2025_jsonl/_init.jsonl": "88d24bf574f7a6086a1bdc9ccd7c99b3c70cc96553ea9797b9003e5bdc19edc8",
+    "external_multi/Nemotron-3-Nano-30B-A3B_aime2025_jsonl/_rm25pct_full_x1.jsonl": "d52022d8012e6ca038b1d3735dc8acfc1da7bbf15fd51167e32481f4c67082a0",
+    "external_multi/Nemotron-Nano-9B-v2_aime2025_jsonl/_init.jsonl": "bf93358b41183f5cd5317b7c88f64567d4e2b57f39484639b1ce0b2baef501d1",
+    "external_multi/Nemotron-Nano-9B-v2_aime2025_jsonl/_rm25pct_full_x1.jsonl": "75e6764c8e47771d40ebc77ba630e6ec5a602c2cfe235cdf23fdba78b071a9d3",
+    "external_multi/gpt-oss-120b_aime2025_jsonl/_init.jsonl": "c8c9dea4a3f103b0a1982e644ba4df61bbd27046cba3bd56dd1ed0107ee24954",
+    "external_multi/gpt-oss-120b_aime2025_jsonl/_rm25pct_full_x1.jsonl": "ad358db265aba5df34cdae860119e77dfc795c94ea398914d8d2d7b22821b815",
+    "external_ministral_transfer/Ministral-3-14B-Reasoning-2512_brumo_jsonl/_init.jsonl": "c94e32c47c1e3348b4922c65f69ab8f4d4fe807cce047f18f085cda50d57575f",
+    "external_ministral_transfer/Ministral-3-14B-Reasoning-2512_brumo_jsonl/_rm25pct_full_x1.jsonl": "54aed9e53e02f4d193b55cc7d14d8fd62fe2654df263d01af0024ae89c5cf716",
+    "external_ministral_transfer/Ministral-3-14B-Reasoning-2512_hmmt_feb_2026_jsonl/_init.jsonl": "1ad3540bef4f140775371100c3e0f4e105b3b9b16990e8d16eaea8492dfda952",
+    "external_ministral_transfer/Ministral-3-14B-Reasoning-2512_hmmt_feb_2026_jsonl/_rm25pct_full_x1.jsonl": "719bb3fa3d4982a9578543fb2e4561e713d591adee19cb57414b48ffbcdc3ad3"
+  }
+}

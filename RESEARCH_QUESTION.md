@@ -16,4 +16,4 @@ Claude's archived Thought Anchors analysis measured median midpoint-resume effic
 - For independent retries of deterministic cost, the exact quantity is the failure exponent per unit cost, not simply success probability divided by cost. For coupled retries the relevant joint failure probabilities must be measured or modeled separately.
 - Use the M4 for the first decision. Keep the old run evidence and do not interrupt a running old job; do not queue new old-line work. Only scale to GPUs after a local, held-out quality–cost gain against strong alternatives.
 
-Local source: `results/local_runs/restart-headroom-20261124/` (Claude scripts, hashes, revision and original output, intentionally not in Git). [Evidence index](RESEARCH_INDEX.md).
+See the [audited evidence](results/prefix_sampling/README.md), [theory](theory/proofs/prefix_sampling.md) and [reproduction entry points](experiments/prefix_sampling/README.md). Raw banks remain local. [Evidence index](RESEARCH_INDEX.md).

@@ -1,0 +1,35 @@
+{
+  "input_sha256": {
+    "calibrate_2048_mlx_fp32.jsonl": "da9c0eae7fb20438dd06a33e4470d3815a1a3520c56c5dee2832a8735053d8fb",
+    "calibrate_4096_mlx_fp32.jsonl": "6fe9d4ae05eefbae2e24ab3c611c262c30c70f29d3eb17611efe223a7f0e8539"
+  },
+  "all_six_long_prefixes_match": true,
+  "long_extension": {
+    "samples": 6,
+    "correct": 0,
+    "non_eos": 2,
+    "median_generated_tokens": 2643.5
+  },
+  "round2_short": {
+    "CRT3": {
+      "samples": 24,
+      "correct": 15,
+      "non_eos": 0,
+      "median_generated_tokens": 1005.0
+    },
+    "CRT3_small": {
+      "samples": 24,
+      "correct": 18,
+      "non_eos": 0,
+      "median_generated_tokens": 760.5
+    },
+    "CRT3_mixed": {
+      "samples": 24,
+      "correct": 15,
+      "non_eos": 0,
+      "median_generated_tokens": 862.0
+    }
+  },
+  "profile_started": false,
+  "heldout_started": false
+}

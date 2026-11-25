@@ -1,0 +1,9 @@
+synthetic no cut P(success | b=8 units) = 0.5  b=128: 0.75
+synthetic cut=1 unit P(success | b=8 units) = 0.996  b=128: 1.0
+gpt-oss-20b/aime2025: within-problem AUC(wrong longer) median 0.60, median(wrong len / correct len) within problem 1.17 over 26 mixed problems
+Ministral-3-14B-Reasoning-2512/brumo: within-problem AUC(wrong longer) median 0.85, median(wrong len / correct len) within problem 1.65 over 27 mixed problems
+Ministral-3-14B-Reasoning-2512/hmmt: within-problem AUC(wrong longer) median 0.75, median(wrong len / correct len) within problem 1.36 over 26 mixed problems
+Ministral-3-14B-Reasoning-2512/aime2025: within-problem AUC(wrong longer) median 0.80, median(wrong len / correct len) within problem 1.52 over 23 mixed problems
+Nemotron-3-Nano-30B-A3B/aime2025: within-problem AUC(wrong longer) median 0.68, median(wrong len / correct len) within problem 1.32 over 17 mixed problems
+Nemotron-Nano-9B-v2/aime2025: within-problem AUC(wrong longer) median 0.80, median(wrong len / correct len) within problem 1.38 over 23 mixed problems
+gpt-oss-120b/aime2025: within-problem AUC(wrong longer) median 0.68, median(wrong len / correct len) within problem 1.17 over 23 mixed problems

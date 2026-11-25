@@ -1,0 +1,14 @@
+
+deepseek-r1-distill-qwen-14b: 20 problems; mean base-trace length 12483 chars
+  after first  1 chunk(s): share of outcome variance resolved: median -0.02, mean -0.07 (n=20; resample noise ~ +/-0.1)
+  after first  2 chunk(s): share of outcome variance resolved: median +0.04, mean -0.03 (n=20; resample noise ~ +/-0.1)
+  after first  3 chunk(s): share of outcome variance resolved: median +0.00, mean -0.05 (n=20; resample noise ~ +/-0.1)
+  after first  5 chunk(s): share of outcome variance resolved: median +0.01, mean +0.00 (n=20; resample noise ~ +/-0.1)
+  after first 10 chunk(s): share of outcome variance resolved: median -0.01, mean -0.04 (n=20; resample noise ~ +/-0.1)
+
+deepseek-r1-distill-llama-8b: 20 problems; mean base-trace length 11259 chars
+  after first  1 chunk(s): share of outcome variance resolved: median +0.03, mean +0.06 (n=19; resample noise ~ +/-0.1)
+  after first  2 chunk(s): share of outcome variance resolved: median +0.02, mean +0.08 (n=19; resample noise ~ +/-0.1)
+  after first  3 chunk(s): share of outcome variance resolved: median +0.03, mean +0.06 (n=19; resample noise ~ +/-0.1)
+  after first  5 chunk(s): share of outcome variance resolved: median +0.07, mean +0.09 (n=19; resample noise ~ +/-0.1)
+  after first 10 chunk(s): share of outcome variance resolved: median +0.03, mean +0.11 (n=19; resample noise ~ +/-0.1)

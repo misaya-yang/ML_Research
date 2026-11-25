@@ -1,0 +1,40 @@
+{
+  "scope": "retrospective, 24 local controls / 16 IID rows per question, separate from Claude E1-P",
+  "raw_sha": "6a4ac0cabe0dd08ab317f18a815ad9a416e8522e29c5260930ff686487e7d600",
+  "predictor_sha": "bb3b4504797711de04b5db4c99072c259d8a4f6f626a955406cb4e805d8d6979",
+  "results": {
+    "2": {
+      "n": 24,
+      "pred_mean": 0.015277777777777779,
+      "real_mean": 0.02048611111111111,
+      "gap_ci": [
+        -0.026041666666666668,
+        0.036458333333333336
+      ],
+      "n_informative": 4,
+      "spearman_informative": null
+    },
+    "4": {
+      "n": 24,
+      "pred_mean": 0.021062271062271057,
+      "real_mean": 0.04189560439560439,
+      "gap_ci": [
+        0.0,
+        0.052083333333333336
+      ],
+      "n_informative": 5,
+      "spearman_informative": 0.8207826816681234
+    },
+    "8": {
+      "n": 24,
+      "pred_mean": 0.008870758870758865,
+      "real_mean": 0.0297040922040922,
+      "gap_ci": [
+        0.0,
+        0.0625
+      ],
+      "n_informative": 4,
+      "spearman_informative": null
+    }
+  }
+}

@@ -4,6 +4,10 @@
 
 当前主线见[前缀分叉与重抽](RESEARCH_QUESTION.md)。下列首达结果保留为旧路线证据。
 
+## 11 月 25 日：前缀与相关采样
+
+[证据总表](results/prefix_sampling/README.md) · [Claude 的理论与反例](theory/proofs/prefix_sampling.md) · [复现入口](experiments/prefix_sampling/README.md)。区分档案复算、Mac 现场实验与未完成的 E1-P 主对照。
+
 ## 保留并复算
 
 - **首达与预算。** [原研究问题](paper/research_notes/first_hit_research_question_20261123.md)、[首达核心证明](theory/proofs/first_passage_core.md)、[联合预算结果](results/first_passage/README.md)。14× 的确认来自固定归档图，并容许一处额外假阳性。旧 9×／95% 结论已因错误标签撤回。真实 Qwen 窄载荷减少 14.90% 额外 logits 行，低于原定 15% 门槛，不是墙钟或同预算正确题增益。
@@ -25,8 +29,7 @@ P-GCD 和续写的只读摘要及原始文件哈希见 [local_screening_snapshot
 
 ## 只留本机的数据
 
-- 机制笔记本：`results/local_runs/research-mechanism-audit-20261124/Findings.ipynb`。主审计 134 份哈希及候选键已核验。应运行只读核验单元，而非 Run All。来源与原始回执仍在同目录。
-- 最新原生 SMC：`results/local_runs/native-smc-continuation-20261125/Continuation.ipynb`。保留非有限值、MPS 内存中止和单题恢复的原回执；未形成完整公平对照。不能把继续运行的实验写成成功。
+- 旧 Jupyter 笔记本已清理，不作为复现入口。已晋升的结论引用可运行脚本、原始文件哈希和精简回执。
 - Lean 证明文本、数值误差见证、研究 notebook 和原始运行回执不随 Git 克隆交付。weight/toolchain/vendor 是环境依赖，不能作为结果提交；没有二次验证不要从仍在运行的实验中删除。
 - 投机 MH 的理论界限应按“接受的完整状态须生成”来读；不能把它扩大为“任何接受决定都无法提前判定”。有限剩余长度可能给出接受下界。这里不改写原证明，留给后续理论复核。
 

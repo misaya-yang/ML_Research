@@ -1,0 +1,9 @@
+{
+  "question_count": 64,
+  "samples": 2048,
+  "all_capped": true,
+  "answers_parsed": 0,
+  "correct": 0,
+  "cap": 24,
+  "conclusion": "The positive-control format cannot identify coupling efficacy when IID emits no terminal boxed answer."
+}

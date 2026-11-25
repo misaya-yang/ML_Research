@@ -1,0 +1,10 @@
+cell | kept prefix | problems | same-wrong-answer rate vs fresh base rate | rescue vs fresh mu | rescue efficiency, prefix sunk (median over problems) | correct-stays-correct | unanswered-original rescue
+gpt-oss-20b/aime2025 | 75% | 26 | 0.47 vs 0.04 | 0.23 vs 0.74 | 0.68x | 0.88 | nan (n=0)
+gpt-oss-20b/aime2025 | 50% | 26 | 0.31 vs 0.04 | 0.35 vs 0.74 | 0.66x | 0.79 | nan (n=0)
+gpt-oss-20b/aime2025 | 25% | 26 | 0.16 vs 0.04 | 0.52 vs 0.74 | 0.74x | 0.73 | nan (n=0)
+Ministral-3-14B-Reasoning-2512/brumo | 75% | 27 | 0.24 vs 0.09 | 0.38 vs 0.56 | 0.96x | 0.82 | nan (n=0)
+Ministral-3-14B-Reasoning-2512/hmmt | 75% | 26 | 0.33 vs 0.11 | 0.26 vs 0.43 | 1.02x | 0.79 | nan (n=0)
+Ministral-3-14B-Reasoning-2512/aime2025 | 75% | 23 | 0.26 vs 0.04 | 0.29 vs 0.36 | 1.81x | 0.77 | nan (n=0)
+Nemotron-3-Nano-30B-A3B/aime2025 | 75% | 17 | 0.34 vs 0.02 | 0.28 vs 0.88 | 0.61x | 0.74 | nan (n=0)
+Nemotron-Nano-9B-v2/aime2025 | 75% | 23 | 0.43 vs 0.09 | 0.11 vs 0.52 | 0.55x | 0.69 | nan (n=0)
+gpt-oss-120b/aime2025 | 75% | 23 | 0.62 vs 0.03 | 0.17 vs 0.77 | 0.64x | 0.95 | nan (n=0)

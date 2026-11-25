@@ -1,0 +1,55 @@
+external_aime
+problems with shifted indexing 0 unmatched originally-wrong rows excluded 0
+dev/test problems 13 14 failed initial traces 409
+fresh with access to routing covariates 2048 score 0.0945 policy ('none', (0, 0), (0, 0))
+2048 fresh/fixed hybrid/routed 0.0945 0.0945 0.0944 dev baseline (0, 0) dev fixed (0, 0) route ('base_conf', (50, 0.75), (0, 0)) diff CI -0.0004 0.0
+fresh with access to routing covariates 4096 score 0.2874 policy ('none', (0, 0), (0, 0))
+4096 fresh/fixed hybrid/routed 0.2874 0.2874 0.2863 dev baseline (0, 0) dev fixed (0, 0) route ('base_conf', (75, 0.75), (0, 0)) diff CI -0.0075 0.0041
+fresh with access to routing covariates 8192 score 0.5433 policy ('none', (0, 0), (0, 0))
+8192 fresh/fixed hybrid/routed 0.5433 0.5433 0.5433 dev baseline (0, 0) dev fixed (0, 0) route ('none', (0, 0), (0, 0)) diff CI 0.0 0.0
+fresh with access to routing covariates 16384 score 0.6935 policy ('none', (0, 0), (0, 0))
+16384 fresh/fixed hybrid/routed 0.6935 0.668 0.6683 dev baseline (0, 0) dev fixed (75, 0.75) route ('base_conf', (0, 0), (75, 0.75)) diff CI -0.055 0.0016
+Ministral-3-14B-Reasoning-2512_aime2025_jsonl
+problems with shifted indexing 0 unmatched originally-wrong rows excluded 0
+dev/test problems 14 14 failed initial traces 526
+fresh with access to routing covariates 2048 score 0.0522 policy ('none', (0, 0), (0, 0))
+2048 fresh/fixed hybrid/routed 0.0522 0.0522 0.0522 dev baseline (0, 0) dev fixed (0, 0) route ('base_conf', (75, 0.25), (0, 0)) diff CI 0.0 0.0
+fresh with access to routing covariates 4096 score 0.2143 policy ('none', (0, 0), (0, 0))
+4096 fresh/fixed hybrid/routed 0.2143 0.1861 0.2344 dev baseline (0, 0) dev fixed (75, 0.75) route ('short_base', (75, 0.75), (0, 0)) diff CI 0.003 0.0381
+fresh with access to routing covariates 8192 score 0.3549 policy ('none', (0, 0), (0, 0))
+8192 fresh/fixed hybrid/routed 0.3549 0.3594 0.3604 dev baseline (0, 0) dev fixed (75, 0.75) route ('short_base', (75, 0.5), (75, 0.75)) diff CI -0.0462 0.0646
+fresh with access to routing covariates 16384 score 0.4819 policy ('none', (0, 0.75), (0, 0.75))
+16384 fresh/fixed hybrid/routed 0.4819 0.4945 0.495 dev baseline (0, 0.75) dev fixed (75, 0.75) route ('short_base', (75, 0.5), (75, 0.75)) diff CI -0.0274 0.0529
+Nemotron-3-Nano-30B-A3B_aime2025_jsonl
+problems with shifted indexing 5 unmatched originally-wrong rows excluded 20
+dev/test problems 9 9 failed initial traces 98
+fresh with access to routing covariates 2048 score 0.0 policy ('none', (0, 0), (0, 0))
+2048 fresh/fixed hybrid/routed 0.0 0.0 0.0 dev baseline (0, 0) dev fixed (0, 0) route ('none', (0, 0), (0, 0)) diff CI 0.0 0.0
+fresh with access to routing covariates 4096 score 0.0 policy ('none', (0, 0), (0, 0))
+4096 fresh/fixed hybrid/routed 0.0 0.0 0.0 dev baseline (0, 0) dev fixed (0, 0) route ('none', (0, 0), (0, 0)) diff CI 0.0 0.0
+fresh with access to routing covariates 8192 score 0.0341 policy ('none', (0, 0), (0, 0))
+8192 fresh/fixed hybrid/routed 0.0341 0.0254 0.0341 dev baseline (0, 0) dev fixed (75, 0.75) route ('tail_drop', (0, 0), (75, 0.75)) diff CI 0.0 0.0
+fresh with access to routing covariates 16384 score 0.1242 policy ('none', (0, 0), (0, 0))
+16384 fresh/fixed hybrid/routed 0.1242 0.1512 0.1345 dev baseline (0, 0) dev fixed (75, 0.75) route ('tail_drop', (0, 0), (75, 0.75)) diff CI 0.0 0.0279
+Nemotron-Nano-9B-v2_aime2025_jsonl
+problems with shifted indexing 1 unmatched originally-wrong rows excluded 0
+dev/test problems 12 13 failed initial traces 734
+fresh with access to routing covariates 2048 score 0.0 policy ('none', (0, 0), (0, 0))
+2048 fresh/fixed hybrid/routed 0.0 0.0054 0.0054 dev baseline (0, 0) dev fixed (75, 0.75) route ('none', (75, 0.75), (75, 0.75)) diff CI 0.0 0.0156
+fresh with access to routing covariates 4096 score 0.0545 policy ('none', (0, 0), (0, 0))
+4096 fresh/fixed hybrid/routed 0.0545 0.0545 0.0599 dev baseline (0, 0) dev fixed (0, 0) route ('base_conf', (75, 0.75), (0, 0)) diff CI 0.0 0.0156
+fresh with access to routing covariates 8192 score 0.2399 policy ('none', (0, 0), (0, 0))
+8192 fresh/fixed hybrid/routed 0.2399 0.2399 0.2399 dev baseline (0, 0) dev fixed (0, 0) route ('none', (0, 0), (0, 0)) diff CI 0.0 0.0
+fresh with access to routing covariates 16384 score 0.4967 policy ('none', (0, 0), (0, 0))
+16384 fresh/fixed hybrid/routed 0.4967 0.4967 0.4967 dev baseline (0, 0) dev fixed (0, 0) route ('none', (0, 0), (0, 0)) diff CI 0.0 0.0
+gpt-oss-120b_aime2025_jsonl
+problems with shifted indexing 0 unmatched originally-wrong rows excluded 0
+dev/test problems 12 12 failed initial traces 312
+fresh with access to routing covariates 2048 score 0.0026 policy ('none', (0, 0), (0, 0))
+2048 fresh/fixed hybrid/routed 0.0026 0.0084 0.0061 dev baseline (0, 0) dev fixed (75, 0.75) route ('tail_drop', (0, 0), (75, 0.75)) diff CI 0.0 0.0104
+fresh with access to routing covariates 4096 score 0.3031 policy ('none', (0, 0), (0, 0))
+4096 fresh/fixed hybrid/routed 0.3031 0.3031 0.2635 dev baseline (0, 0) dev fixed (0, 0) route ('tail_drop', (0, 0), (75, 0.75)) diff CI -0.1106 0.0097
+fresh with access to routing covariates 8192 score 0.6476 policy ('none', (0, 0), (0, 0))
+8192 fresh/fixed hybrid/routed 0.6476 0.6476 0.6236 dev baseline (0, 0) dev fixed (0, 0) route ('short_base', (75, 0.75), (0, 0)) diff CI -0.0543 -0.001
+fresh with access to routing covariates 16384 score 0.7779 policy ('none', (0, 0.75), (0, 0.75))
+16384 fresh/fixed hybrid/routed 0.7779 0.7779 0.7779 dev baseline (0, 0.75) dev fixed (0, 0.75) route ('none', (0, 0.75), (0, 0.75)) diff CI 0.0 0.0

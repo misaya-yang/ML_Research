@@ -1,0 +1,25 @@
+{
+  "question_manifest_sha256": "859192d3113c95f5931f09f4a88d5f19803ee4cb331bf61feb7a09ded7403fdc",
+  "frozen_iid_sha256": "581d8af57551fd0a35af068e4863d6334bf240faa46219d217146569108a6bc9",
+  "scope": "8 fixed first questions by preregistered sort, 2 samples each; same F1 prompt and cap",
+  "summary": {
+    "two_slots": {
+      "cases": 16,
+      "boxed": 0,
+      "capped": 16,
+      "token_exact_against_two_slots": 0
+    },
+    "native_same_row_sampler": {
+      "cases": 16,
+      "boxed": 0,
+      "capped": 16,
+      "token_exact_against_two_slots": 11
+    },
+    "native_stock_sampler": {
+      "cases": 16,
+      "boxed": 0,
+      "capped": 16,
+      "token_exact_against_two_slots": 7
+    }
+  }
+}

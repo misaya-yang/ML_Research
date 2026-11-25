@@ -1,0 +1,490 @@
+{
+  "questions": 48,
+  "menu_comparison": "fixed_prompt_2048 vs joint_prompt_2048",
+  "per_question_same_grades_and_costs": 48,
+  "accuracy": 0.7708333333333334,
+  "charged_tokens": 1817.6666666666667,
+  "generated_new_tokens_for_replay": 0,
+  "by_question": {
+    "test/algebra/1072.json": [
+      [
+        1,
+        822
+      ],
+      [
+        1,
+        822
+      ]
+    ],
+    "test/algebra/1143.json": [
+      [
+        1,
+        3973
+      ],
+      [
+        1,
+        3973
+      ]
+    ],
+    "test/algebra/1303.json": [
+      [
+        1,
+        1280
+      ],
+      [
+        1,
+        1280
+      ]
+    ],
+    "test/algebra/1343.json": [
+      [
+        1,
+        1711
+      ],
+      [
+        1,
+        1711
+      ]
+    ],
+    "test/algebra/1553.json": [
+      [
+        1,
+        691
+      ],
+      [
+        1,
+        691
+      ]
+    ],
+    "test/algebra/1787.json": [
+      [
+        0,
+        286
+      ],
+      [
+        0,
+        286
+      ]
+    ],
+    "test/algebra/1814.json": [
+      [
+        1,
+        500
+      ],
+      [
+        1,
+        500
+      ]
+    ],
+    "test/algebra/1842.json": [
+      [
+        1,
+        321
+      ],
+      [
+        1,
+        321
+      ]
+    ],
+    "test/algebra/2199.json": [
+      [
+        1,
+        1982
+      ],
+      [
+        1,
+        1982
+      ]
+    ],
+    "test/algebra/2277.json": [
+      [
+        0,
+        652
+      ],
+      [
+        0,
+        652
+      ]
+    ],
+    "test/algebra/2486.json": [
+      [
+        1,
+        382
+      ],
+      [
+        1,
+        382
+      ]
+    ],
+    "test/algebra/2570.json": [
+      [
+        0,
+        3452
+      ],
+      [
+        0,
+        3452
+      ]
+    ],
+    "test/algebra/634.json": [
+      [
+        1,
+        3660
+      ],
+      [
+        1,
+        3660
+      ]
+    ],
+    "test/algebra/791.json": [
+      [
+        1,
+        3810
+      ],
+      [
+        1,
+        3810
+      ]
+    ],
+    "test/counting_and_probability/389.json": [
+      [
+        1,
+        841
+      ],
+      [
+        1,
+        841
+      ]
+    ],
+    "test/counting_and_probability/761.json": [
+      [
+        1,
+        2443
+      ],
+      [
+        1,
+        2443
+      ]
+    ],
+    "test/geometry/106.json": [
+      [
+        1,
+        1756
+      ],
+      [
+        1,
+        1756
+      ]
+    ],
+    "test/geometry/561.json": [
+      [
+        0,
+        1334
+      ],
+      [
+        0,
+        1334
+      ]
+    ],
+    "test/intermediate_algebra/101.json": [
+      [
+        1,
+        3846
+      ],
+      [
+        1,
+        3846
+      ]
+    ],
+    "test/intermediate_algebra/1454.json": [
+      [
+        0,
+        3283
+      ],
+      [
+        0,
+        3283
+      ]
+    ],
+    "test/intermediate_algebra/1467.json": [
+      [
+        0,
+        3116
+      ],
+      [
+        0,
+        3116
+      ]
+    ],
+    "test/intermediate_algebra/2022.json": [
+      [
+        1,
+        940
+      ],
+      [
+        1,
+        940
+      ]
+    ],
+    "test/intermediate_algebra/690.json": [
+      [
+        1,
+        687
+      ],
+      [
+        1,
+        687
+      ]
+    ],
+    "test/intermediate_algebra/894.json": [
+      [
+        0,
+        2431
+      ],
+      [
+        0,
+        2431
+      ]
+    ],
+    "test/intermediate_algebra/956.json": [
+      [
+        0,
+        1262
+      ],
+      [
+        0,
+        1262
+      ]
+    ],
+    "test/number_theory/22.json": [
+      [
+        1,
+        3616
+      ],
+      [
+        1,
+        3616
+      ]
+    ],
+    "test/number_theory/417.json": [
+      [
+        0,
+        3726
+      ],
+      [
+        0,
+        3726
+      ]
+    ],
+    "test/number_theory/45.json": [
+      [
+        1,
+        2405
+      ],
+      [
+        1,
+        2405
+      ]
+    ],
+    "test/number_theory/769.json": [
+      [
+        1,
+        3794
+      ],
+      [
+        1,
+        3794
+      ]
+    ],
+    "test/prealgebra/1113.json": [
+      [
+        1,
+        2492
+      ],
+      [
+        1,
+        2492
+      ]
+    ],
+    "test/prealgebra/1247.json": [
+      [
+        1,
+        327
+      ],
+      [
+        1,
+        327
+      ]
+    ],
+    "test/prealgebra/1252.json": [
+      [
+        1,
+        313
+      ],
+      [
+        1,
+        313
+      ]
+    ],
+    "test/prealgebra/1297.json": [
+      [
+        1,
+        396
+      ],
+      [
+        1,
+        396
+      ]
+    ],
+    "test/prealgebra/1302.json": [
+      [
+        1,
+        1181
+      ],
+      [
+        1,
+        1181
+      ]
+    ],
+    "test/prealgebra/1388.json": [
+      [
+        1,
+        1599
+      ],
+      [
+        1,
+        1599
+      ]
+    ],
+    "test/prealgebra/1622.json": [
+      [
+        1,
+        3381
+      ],
+      [
+        1,
+        3381
+      ]
+    ],
+    "test/prealgebra/1747.json": [
+      [
+        1,
+        789
+      ],
+      [
+        1,
+        789
+      ]
+    ],
+    "test/prealgebra/1787.json": [
+      [
+        1,
+        1756
+      ],
+      [
+        1,
+        1756
+      ]
+    ],
+    "test/prealgebra/1804.json": [
+      [
+        0,
+        523
+      ],
+      [
+        0,
+        523
+      ]
+    ],
+    "test/prealgebra/1834.json": [
+      [
+        1,
+        862
+      ],
+      [
+        1,
+        862
+      ]
+    ],
+    "test/prealgebra/1922.json": [
+      [
+        1,
+        886
+      ],
+      [
+        1,
+        886
+      ]
+    ],
+    "test/prealgebra/572.json": [
+      [
+        1,
+        1307
+      ],
+      [
+        1,
+        1307
+      ]
+    ],
+    "test/precalculus/1105.json": [
+      [
+        1,
+        1328
+      ],
+      [
+        1,
+        1328
+      ]
+    ],
+    "test/precalculus/1300.json": [
+      [
+        1,
+        988
+      ],
+      [
+        1,
+        988
+      ]
+    ],
+    "test/precalculus/580.json": [
+      [
+        1,
+        3627
+      ],
+      [
+        1,
+        3627
+      ]
+    ],
+    "test/precalculus/675.json": [
+      [
+        0,
+        787
+      ],
+      [
+        0,
+        787
+      ]
+    ],
+    "test/precalculus/697.json": [
+      [
+        1,
+        3643
+      ],
+      [
+        1,
+        3643
+      ]
+    ],
+    "test/precalculus/807.json": [
+      [
+        1,
+        2061
+      ],
+      [
+        1,
+        2061
+      ]
+    ]
+  }
+}

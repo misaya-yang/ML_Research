@@ -1,0 +1,22 @@
+{
+  "2": {
+    "lattice_pass_bias": -0.001096264073855351,
+    "lattice_pass_rmse": 0.10173385228396133,
+    "gain_bias": 0.0030568708587171874,
+    "gain_rmse": 0.058796689038171875
+  },
+  "4": {
+    "lattice_pass_bias": -0.0073891041419851325,
+    "lattice_pass_rmse": 0.10806420604459942,
+    "gain_bias": -0.004163818113951454,
+    "gain_rmse": 0.06294754679571327
+  },
+  "8": {
+    "lattice_pass_bias": -0.004932064528821737,
+    "lattice_pass_rmse": 0.12668834448841645,
+    "gain_bias": -0.0006615171694472705,
+    "gain_rmse": 0.053105272151590985
+  },
+  "validated": true,
+  "design": "200 varied trees, max depth 4–8, Dirichlet branching 2–6, exact full-tree arithmetic lattice, 32 IID draws each"
+}

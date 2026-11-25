@@ -1,0 +1,23 @@
+completed 24 base correct 12 base capped 5
+failed 12 short failed 4
+all failed 12
+full_fresh rescued 1 new tokens 3069 mean refilled positions 113.1
+split_fresh rescued 0 new tokens 3072 mean refilled positions 226.2
+fixed_fork rescued 1 new tokens 2969 mean refilled positions 671.4
+routed rescued 1 new tokens 2969 mean refilled positions 219.4
+routed vs full_fresh W/L 0 0 95% descriptive paired bootstrap 0 0 discordant cases []
+routed vs split_fresh W/L 1 0 95% descriptive paired bootstrap 0 0.25 discordant cases [(185, 1)]
+short failed 4
+full_fresh rescued 1 new tokens 1021 mean refilled positions 57.2
+split_fresh rescued 0 new tokens 1024 mean refilled positions 114.5
+fixed_fork rescued 1 new tokens 921 mean refilled positions 376.2
+routed rescued 1 new tokens 921 mean refilled positions 376.2
+routed vs full_fresh W/L 0 0 95% descriptive paired bootstrap 0 0 discordant cases []
+routed vs split_fresh W/L 1 0 95% descriptive paired bootstrap 0 0.75 discordant cases [(185, 1)]
+long failed 8
+full_fresh rescued 0 new tokens 2048 mean refilled positions 141
+split_fresh rescued 0 new tokens 2048 mean refilled positions 282
+fixed_fork rescued 0 new tokens 2048 mean refilled positions 819
+routed rescued 0 new tokens 2048 mean refilled positions 141
+routed vs full_fresh W/L 0 0 95% descriptive paired bootstrap 0 0 discordant cases []
+routed vs split_fresh W/L 0 0 95% descriptive paired bootstrap 0 0 discordant cases []

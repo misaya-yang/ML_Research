@@ -1,0 +1,143 @@
+{
+  "raw_sha256": "ed7c484555d9332e7d2bf81599ddd9678f0d3981480d65d42d89785784bb8d33",
+  "sum_reported_attempt_seconds": {
+    "routed": 271.8337097505573,
+    "full_fresh": 262.41880250093527
+  },
+  "protocol": {
+    "panel": [
+      {
+        "index": 268,
+        "id": "test/number_theory/466.json",
+        "level": 1
+      },
+      {
+        "index": 440,
+        "id": "test/algebra/2080.json",
+        "level": 3
+      },
+      {
+        "index": 185,
+        "id": "test/algebra/1214.json",
+        "level": 1
+      },
+      {
+        "index": 469,
+        "id": "test/algebra/435.json",
+        "level": 3
+      },
+      {
+        "index": 42,
+        "id": "test/algebra/2214.json",
+        "level": 2
+      },
+      {
+        "index": 101,
+        "id": "test/intermediate_algebra/582.json",
+        "level": 5
+      },
+      {
+        "index": 57,
+        "id": "test/intermediate_algebra/1168.json",
+        "level": 2
+      },
+      {
+        "index": 434,
+        "id": "test/prealgebra/1640.json",
+        "level": 5
+      },
+      {
+        "index": 262,
+        "id": "test/prealgebra/1317.json",
+        "level": 1
+      },
+      {
+        "index": 482,
+        "id": "test/number_theory/1090.json",
+        "level": 5
+      },
+      {
+        "index": 149,
+        "id": "test/number_theory/931.json",
+        "level": 2
+      },
+      {
+        "index": 150,
+        "id": "test/intermediate_algebra/964.json",
+        "level": 5
+      },
+      {
+        "index": 265,
+        "id": "test/algebra/524.json",
+        "level": 2
+      },
+      {
+        "index": 429,
+        "id": "test/intermediate_algebra/1014.json",
+        "level": 3
+      },
+      {
+        "index": 370,
+        "id": "test/precalculus/1289.json",
+        "level": 1
+      },
+      {
+        "index": 244,
+        "id": "test/prealgebra/1251.json",
+        "level": 5
+      },
+      {
+        "index": 35,
+        "id": "test/number_theory/627.json",
+        "level": 2
+      },
+      {
+        "index": 355,
+        "id": "test/intermediate_algebra/1166.json",
+        "level": 5
+      },
+      {
+        "index": 453,
+        "id": "test/algebra/2476.json",
+        "level": 2
+      },
+      {
+        "index": 197,
+        "id": "test/number_theory/838.json",
+        "level": 5
+      },
+      {
+        "index": 395,
+        "id": "test/algebra/114.json",
+        "level": 1
+      },
+      {
+        "index": 214,
+        "id": "test/counting_and_probability/765.json",
+        "level": 5
+      },
+      {
+        "index": 336,
+        "id": "test/algebra/2592.json",
+        "level": 1
+      },
+      {
+        "index": 473,
+        "id": "test/prealgebra/1930.json",
+        "level": 5
+      }
+    ],
+    "root_cap": 768,
+    "B": 256,
+    "first_cap": 192,
+    "kept_fraction": 0.75,
+    "length_boundary": 529.875,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "dtype": "float32",
+    "rows_scored_after_generation": true,
+    "main": "single-root-then-two-actions, after exact checked original failure, all fresh comparisons frozen before generation",
+    "secondary": "no feedback: first parseable answer else fallback, report on all base rows (requires actually running all rows so not claimed in this verified-failure protocol)",
+    "hardware": "local M4 MPS"
+  }
+}

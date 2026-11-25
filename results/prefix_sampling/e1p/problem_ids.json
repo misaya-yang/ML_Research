@@ -1,0 +1,264 @@
+{
+  "sha256_source": "35dc41080a3680858b27fa7e0533d2d547825316fc5dafe5d316f4ccc5a06132",
+  "selection": "e1p-v1/ + unique_id",
+  "model_revision": "3b1b1768f8f8cf8351c712464f906e86c2b8269e",
+  "problems": [
+    {
+      "id": "test/geometry/477.json",
+      "level": 3
+    },
+    {
+      "id": "test/prealgebra/65.json",
+      "level": 2
+    },
+    {
+      "id": "test/intermediate_algebra/776.json",
+      "level": 4
+    },
+    {
+      "id": "test/geometry/172.json",
+      "level": 5
+    },
+    {
+      "id": "test/number_theory/911.json",
+      "level": 4
+    },
+    {
+      "id": "test/prealgebra/993.json",
+      "level": 4
+    },
+    {
+      "id": "test/counting_and_probability/1003.json",
+      "level": 5
+    },
+    {
+      "id": "test/counting_and_probability/23957.json",
+      "level": 3
+    },
+    {
+      "id": "test/algebra/2058.json",
+      "level": 4
+    },
+    {
+      "id": "test/number_theory/1002.json",
+      "level": 5
+    },
+    {
+      "id": "test/precalculus/34.json",
+      "level": 2
+    },
+    {
+      "id": "test/geometry/547.json",
+      "level": 4
+    },
+    {
+      "id": "test/intermediate_algebra/834.json",
+      "level": 3
+    },
+    {
+      "id": "test/number_theory/488.json",
+      "level": 4
+    },
+    {
+      "id": "test/intermediate_algebra/1555.json",
+      "level": 3
+    },
+    {
+      "id": "test/prealgebra/1922.json",
+      "level": 2
+    },
+    {
+      "id": "test/number_theory/634.json",
+      "level": 4
+    },
+    {
+      "id": "test/prealgebra/1227.json",
+      "level": 3
+    },
+    {
+      "id": "test/intermediate_algebra/1779.json",
+      "level": 4
+    },
+    {
+      "id": "test/counting_and_probability/190.json",
+      "level": 2
+    },
+    {
+      "id": "test/counting_and_probability/389.json",
+      "level": 2
+    },
+    {
+      "id": "test/number_theory/679.json",
+      "level": 2
+    },
+    {
+      "id": "test/intermediate_algebra/1898.json",
+      "level": 3
+    },
+    {
+      "id": "test/geometry/73.json",
+      "level": 2
+    },
+    {
+      "id": "test/algebra/1143.json",
+      "level": 5
+    },
+    {
+      "id": "test/number_theory/22.json",
+      "level": 3
+    },
+    {
+      "id": "test/counting_and_probability/339.json",
+      "level": 4
+    },
+    {
+      "id": "test/algebra/1199.json",
+      "level": 4
+    },
+    {
+      "id": "test/number_theory/928.json",
+      "level": 4
+    },
+    {
+      "id": "test/algebra/524.json",
+      "level": 2
+    },
+    {
+      "id": "test/geometry/283.json",
+      "level": 4
+    },
+    {
+      "id": "test/counting_and_probability/181.json",
+      "level": 5
+    },
+    {
+      "id": "test/intermediate_algebra/1510.json",
+      "level": 5
+    },
+    {
+      "id": "test/number_theory/521.json",
+      "level": 2
+    },
+    {
+      "id": "test/prealgebra/1865.json",
+      "level": 4
+    },
+    {
+      "id": "test/algebra/2064.json",
+      "level": 5
+    },
+    {
+      "id": "test/number_theory/109.json",
+      "level": 4
+    },
+    {
+      "id": "test/precalculus/285.json",
+      "level": 2
+    },
+    {
+      "id": "test/intermediate_algebra/1849.json",
+      "level": 5
+    },
+    {
+      "id": "test/intermediate_algebra/607.json",
+      "level": 3
+    },
+    {
+      "id": "test/prealgebra/874.json",
+      "level": 4
+    },
+    {
+      "id": "test/prealgebra/1353.json",
+      "level": 5
+    },
+    {
+      "id": "test/counting_and_probability/10.json",
+      "level": 4
+    },
+    {
+      "id": "test/algebra/668.json",
+      "level": 4
+    },
+    {
+      "id": "test/algebra/2080.json",
+      "level": 3
+    },
+    {
+      "id": "test/intermediate_algebra/894.json",
+      "level": 3
+    },
+    {
+      "id": "test/prealgebra/378.json",
+      "level": 4
+    },
+    {
+      "id": "test/algebra/2277.json",
+      "level": 5
+    },
+    {
+      "id": "test/number_theory/1201.json",
+      "level": 3
+    },
+    {
+      "id": "test/number_theory/1287.json",
+      "level": 4
+    },
+    {
+      "id": "test/intermediate_algebra/1126.json",
+      "level": 4
+    },
+    {
+      "id": "test/prealgebra/1730.json",
+      "level": 3
+    },
+    {
+      "id": "test/algebra/2427.json",
+      "level": 5
+    },
+    {
+      "id": "test/number_theory/515.json",
+      "level": 3
+    },
+    {
+      "id": "test/algebra/2214.json",
+      "level": 2
+    },
+    {
+      "id": "test/algebra/297.json",
+      "level": 5
+    },
+    {
+      "id": "test/precalculus/1202.json",
+      "level": 5
+    },
+    {
+      "id": "test/algebra/246.json",
+      "level": 4
+    },
+    {
+      "id": "test/geometry/965.json",
+      "level": 5
+    },
+    {
+      "id": "test/prealgebra/1388.json",
+      "level": 4
+    },
+    {
+      "id": "test/prealgebra/1247.json",
+      "level": 2
+    },
+    {
+      "id": "test/algebra/1842.json",
+      "level": 2
+    },
+    {
+      "id": "test/number_theory/1000.json",
+      "level": 5
+    },
+    {
+      "id": "test/counting_and_probability/134.json",
+      "level": 4
+    }
+  ],
+  "full_manifest_sha256": "859192d3113c95f5931f09f4a88d5f19803ee4cb331bf61feb7a09ded7403fdc"
+}

@@ -1,0 +1,63 @@
+
+=== gpt-oss-20b/aime2025: 30 problems; median share of wrong samples on the single most common wrong answer: 0.33
+  share of pre-success i.i.d. tokens spent re-deriving an already-refuted answer: median over problems 0.02, mean 0.04
+  B       iid    detect@50%  detect@25%  oracle-skip(0%)
+    4096  0.306  0.306       0.306       0.306
+    8192  0.515  0.515       0.515       0.515
+   16384  0.693  0.694       0.694       0.695
+   32768  0.813  0.814       0.815       0.816
+   65536  0.873  0.875       0.875       0.876
+
+=== Ministral-3-14B-Reasoning-2512/brumo: 30 problems; median share of wrong samples on the single most common wrong answer: 0.33
+  share of pre-success i.i.d. tokens spent re-deriving an already-refuted answer: median over problems 0.12, mean 0.16
+  B       iid    detect@50%  detect@25%  oracle-skip(0%)
+    4096  0.184  0.184       0.184       0.184
+    8192  0.415  0.416       0.417       0.421
+   16384  0.598  0.602       0.604       0.611
+   32768  0.759  0.769       0.774       0.784
+   65536  0.843  0.854       0.861       0.868
+
+=== Ministral-3-14B-Reasoning-2512/hmmt: 33 problems; median share of wrong samples on the single most common wrong answer: 0.31
+  share of pre-success i.i.d. tokens spent re-deriving an already-refuted answer: median over problems 0.15, mean 0.19
+  B       iid    detect@50%  detect@25%  oracle-skip(0%)
+    4096  0.076  0.076       0.076       0.076
+    8192  0.247  0.247       0.247       0.248
+   16384  0.399  0.402       0.405       0.410
+   32768  0.531  0.539       0.545       0.556
+   65536  0.604  0.616       0.625       0.652
+
+=== Ministral-3-14B-Reasoning-2512/aime2025: 30 problems; median share of wrong samples on the single most common wrong answer: 0.19
+  share of pre-success i.i.d. tokens spent re-deriving an already-refuted answer: median over problems 0.11, mean 0.16
+  B       iid    detect@50%  detect@25%  oracle-skip(0%)
+    4096  0.184  0.184       0.184       0.184
+    8192  0.301  0.301       0.301       0.301
+   16384  0.396  0.397       0.398       0.399
+   32768  0.500  0.504       0.507       0.510
+   65536  0.583  0.595       0.603       0.614
+
+=== Nemotron-3-Nano-30B-A3B/aime2025: 30 problems; median share of wrong samples on the single most common wrong answer: 0.60
+  share of pre-success i.i.d. tokens spent re-deriving an already-refuted answer: median over problems 0.00, mean 0.02
+  B       iid    detect@50%  detect@25%  oracle-skip(0%)
+    4096  0.100  0.100       0.100       0.100
+    8192  0.207  0.207       0.207       0.207
+   16384  0.393  0.393       0.393       0.393
+   32768  0.677  0.677       0.677       0.677
+   65536  0.859  0.859       0.860       0.860
+
+=== Nemotron-Nano-9B-v2/aime2025: 30 problems; median share of wrong samples on the single most common wrong answer: 0.27
+  share of pre-success i.i.d. tokens spent re-deriving an already-refuted answer: median over problems 0.07, mean 0.13
+  B       iid    detect@50%  detect@25%  oracle-skip(0%)
+    4096  0.200  0.200       0.200       0.200
+    8192  0.339  0.339       0.339       0.339
+   16384  0.543  0.545       0.546       0.553
+   32768  0.660  0.667       0.673       0.678
+   65536  0.756  0.765       0.773       0.782
+
+=== gpt-oss-120b/aime2025: 30 problems; median share of wrong samples on the single most common wrong answer: 0.38
+  share of pre-success i.i.d. tokens spent re-deriving an already-refuted answer: median over problems 0.05, mean 0.06
+  B       iid    detect@50%  detect@25%  oracle-skip(0%)
+    4096  0.463  0.463       0.463       0.463
+    8192  0.715  0.716       0.716       0.716
+   16384  0.835  0.835       0.836       0.837
+   32768  0.890  0.891       0.892       0.893
+   65536  0.920  0.921       0.922       0.924

@@ -1,0 +1,6 @@
+deepseek-r1-distill-qwen-14b
+  budget 1.0 dev-depth 0 holdout 10 fresh 0.7273 frozen-depth 0.7273 quarter 0.6718 midpoint 0.5509
+  budget 2.0 dev-depth 0 holdout 10 fresh 0.8976 frozen-depth 0.8976 quarter 0.8543 midpoint 0.6537
+deepseek-r1-distill-llama-8b
+  budget 1.0 dev-depth 0 holdout 10 fresh 0.6202 frozen-depth 0.6202 quarter 0.5353 midpoint 0.44
+  budget 2.0 dev-depth 0 holdout 10 fresh 0.8142 frozen-depth 0.8142 quarter 0.7028 midpoint 0.594

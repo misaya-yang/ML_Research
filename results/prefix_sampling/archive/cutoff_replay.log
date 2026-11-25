@@ -1,0 +1,63 @@
+
+=== gpt-oss-20b/aime2025: 30 problems, N=128, mean acc 0.742
+  B      iid(no cut)  LOO-cut  [chosen c, mode]  LOO-luby  oracle-per-problem-cut  in-sample-best-cut
+    4096  0.306        0.306   [cutNone]  0.306 [luby4096]  0.307   0.306 [cut4096]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+    8192  0.519        0.519   [cutNone]  0.519 [luby8192]  0.522   0.519 [cut8192]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   16384  0.694        0.694   [cutNone]  0.612 [luby8192]  0.700   0.694 [cut16384]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   32768  0.812        0.812   [cutNone]  0.744 [luby8192]  0.817   0.812 [cut32768]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   65536  0.875        0.875   [cutNone]  0.808 [luby8192]  0.876   0.875 [cutNone]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+  unbounded budget: oracle per-problem cutoff speedup in E[tokens to first success]: median 1.00x, mean 1.03x over 29 problems
+
+=== Ministral-3-14B-Reasoning-2512/brumo: 30 problems, N=64, mean acc 0.507
+  B      iid(no cut)  LOO-cut  [chosen c, mode]  LOO-luby  oracle-per-problem-cut  in-sample-best-cut
+    4096  0.183        0.183   [cutNone]  0.183 [luby4096]  0.185   0.183 [cut4096]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+    8192  0.412        0.412   [cutNone]  0.412 [luby8192]  0.423   0.412 [cut8192]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   16384  0.597        0.597   [cutNone]  0.576 [luby8192]  0.628   0.597 [cut12288]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   32768  0.759        0.759   [cutNone]  0.736 [luby8192]  0.774   0.759 [cut12288]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   65536  0.844        0.844   [cutNone]  0.836 [luby8192]  0.855   0.844 [cut12288]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+  unbounded budget: oracle per-problem cutoff speedup in E[tokens to first success]: median 1.00x, mean 1.08x over 27 problems
+
+=== Ministral-3-14B-Reasoning-2512/hmmt: 33 problems, N=64, mean acc 0.340
+  B      iid(no cut)  LOO-cut  [chosen c, mode]  LOO-luby  oracle-per-problem-cut  in-sample-best-cut
+    4096  0.077        0.077   [cutNone]  0.077 [luby4096]  0.077   0.077 [cut4096]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+    8192  0.244        0.244   [cutNone]  0.244 [luby8192]  0.246   0.244 [cut8192]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   16384  0.395        0.395   [cutNone]  0.356 [luby8192]  0.412   0.395 [cut12288]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   32768  0.529        0.529   [cutNone]  0.498 [luby8192]  0.538   0.529 [cut12288]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   65536  0.604        0.604   [cutNone]  0.594 [luby8192]  0.615   0.604 [cut12288]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+  unbounded budget: oracle per-problem cutoff speedup in E[tokens to first success]: median 1.00x, mean 1.08x over 26 problems
+
+=== Ministral-3-14B-Reasoning-2512/aime2025: 30 problems, N=64, mean acc 0.345
+  B      iid(no cut)  LOO-cut  [chosen c, mode]  LOO-luby  oracle-per-problem-cut  in-sample-best-cut
+    4096  0.180        0.180   [cutNone]  0.180 [luby4096]  0.181   0.180 [cut4096]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+    8192  0.303        0.303   [cutNone]  0.303 [luby8192]  0.316   0.303 [cut8192]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   16384  0.397        0.397   [cutNone]  0.386 [luby8192]  0.413   0.397 [cut12288]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   32768  0.498        0.498   [cutNone]  0.481 [luby8192]  0.508   0.498 [cut12288]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   65536  0.583        0.583   [cutNone]  0.567 [luby8192]  0.592   0.583 [cut12288]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+  unbounded budget: oracle per-problem cutoff speedup in E[tokens to first success]: median 1.03x, mean 1.12x over 25 problems
+
+=== Nemotron-3-Nano-30B-A3B/aime2025: 30 problems, N=128, mean acc 0.902
+  B      iid(no cut)  LOO-cut  [chosen c, mode]  LOO-luby  oracle-per-problem-cut  in-sample-best-cut
+    4096  0.099        0.099   [cutNone]  0.099 [luby4096]  0.099   0.099 [cut4096]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+    8192  0.208        0.208   [cutNone]  0.208 [luby8192]  0.209   0.208 [cut8192]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   16384  0.387        0.387   [cutNone]  0.239 [luby8192]  0.387   0.387 [cut16384]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   32768  0.679        0.679   [cutNone]  0.389 [luby8192]  0.680   0.679 [cut32768]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   65536  0.859        0.859   [cutNone]  0.430 [luby8192]  0.859   0.859 [cutNone]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+  unbounded budget: oracle per-problem cutoff speedup in E[tokens to first success]: median 1.00x, mean 1.00x over 29 problems
+
+=== Nemotron-Nano-9B-v2/aime2025: 30 problems, N=128, mean acc 0.569
+  B      iid(no cut)  LOO-cut  [chosen c, mode]  LOO-luby  oracle-per-problem-cut  in-sample-best-cut
+    4096  0.202        0.202   [cutNone]  0.202 [luby4096]  0.202   0.202 [cut4096]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+    8192  0.342        0.342   [cutNone]  0.342 [luby8192]  0.344   0.342 [cut8192]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   16384  0.540        0.540   [cutNone]  0.407 [luby8192]  0.541   0.540 [cut16384]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   32768  0.656        0.656   [cut24576]  0.578 [luby8192]  0.662   0.657 [cut24576]   LOO-cut minus iid -0.001 CI[-0.002,+0.000]
+   65536  0.756        0.756   [cut24576]  0.670 [luby8192]  0.759   0.757 [cut24576]   LOO-cut minus iid -0.000 CI[-0.002,+0.001]
+  unbounded budget: oracle per-problem cutoff speedup in E[tokens to first success]: median 1.00x, mean 1.02x over 28 problems
+
+=== gpt-oss-120b/aime2025: 30 problems, N=128, mean acc 0.789
+  B      iid(no cut)  LOO-cut  [chosen c, mode]  LOO-luby  oracle-per-problem-cut  in-sample-best-cut
+    4096  0.462        0.462   [cutNone]  0.462 [luby4096]  0.462   0.462 [cut4096]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+    8192  0.713        0.713   [cutNone]  0.713 [luby8192]  0.717   0.713 [cut8192]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   16384  0.829        0.829   [cutNone]  0.788 [luby8192]  0.831   0.829 [cut16384]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   32768  0.888        0.888   [cutNone]  0.855 [luby8192]  0.888   0.888 [cut32768]   LOO-cut minus iid +0.000 CI[+0.000,+0.000]
+   65536  0.918        0.918   [cut24576]  0.890 [luby8192]  0.918   0.918 [cut24576]   LOO-cut minus iid -0.000 CI[-0.000,-0.000]
+  unbounded budget: oracle per-problem cutoff speedup in E[tokens to first success]: median 1.00x, mean 1.01x over 29 problems
