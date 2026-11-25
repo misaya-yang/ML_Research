@@ -2,9 +2,11 @@
 
 本页是入口，不是投稿稿件。仓库保留两类彼此不同的结果：**固定策略的精确首达加速**和**冻结模型的解码提质**。前者的同轨迹、省算证据，不能当成后者的准确率证据。
 
+当前主线见[前缀分叉与重抽](RESEARCH_QUESTION.md)。下列首达结果保留为旧路线证据。
+
 ## 保留并复算
 
-- **首达与预算。** [研究问题](RESEARCH_QUESTION.md)、[首达核心证明](theory/proofs/first_passage_core.md)、[联合预算结果](results/first_passage/README.md)。14× 的确认来自固定归档图，并容许一处额外假阳性。旧 9×／95% 结论已因错误标签撤回。真实 Qwen 窄载荷减少 14.90% 额外 logits 行，低于原定 15% 门槛，不是墙钟或同预算正确题增益。
+- **首达与预算。** [原研究问题](paper/research_notes/first_hit_research_question_20261123.md)、[首达核心证明](theory/proofs/first_passage_core.md)、[联合预算结果](results/first_passage/README.md)。14× 的确认来自固定归档图，并容许一处额外假阳性。旧 9×／95% 结论已因错误标签撤回。真实 Qwen 窄载荷减少 14.90% 额外 logits 行，低于原定 15% 门槛，不是墙钟或同预算正确题增益。
 - **MBPP56 祖先证书。** [源码／回执／一键复算](results/first_passage/mbpp56_audit/README.md)。完整 K4 负载报告同结果下 391.333 → 323.276 秒；其中 32 道题、14,058 个解码位置和 556 次调用的历史省略发生在读出之前。必须保留第 468 题这个“省位置但不省时间”的反例。原生单个加权 Power-SMC 尚未由该结果确认。
 - **冷启动 IMH。** [旧研究简报](paper/research_notes/research_brief_zh.md)、[三通道证明](theory/proofs/three_channels.md)、[披露对照](results/disclosure/README.md)和[有限状态复现](experiments/REPRODUCE_zh.md)。属于独立理论线。旧 [PDF](paper/manuscripts/README.md)不作为现行稿件。
 - **零训练、单次生成。** [采样证据](results/evidence/single_pass.md)。不以验证器省调用、归档选择器或大样本极限代替现实预算下实际生成的正确率。

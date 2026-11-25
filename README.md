@@ -2,7 +2,8 @@
 
 先看[研究证据索引](RESEARCH_INDEX.md)。这里是研究工作区，不是投稿版本。有数学证明、真实运行、离线复算和失败记录。四类证据不能混用。
 
-- [首次验证搜索：原问题与预算](RESEARCH_QUESTION.md)
+- [当前研究问题：分叉、续写与从头重抽](RESEARCH_QUESTION.md)
+- [旧主线：首次验证搜索](paper/research_notes/first_hit_research_question_20261123.md)
 - [MBPP56：祖先证书、冻结回执和复算](results/first_passage/mbpp56_audit/README.md)
 - [冻结模型：单次生成与零训练采样](results/evidence/single_pass.md)
 - [实验入口与本机依赖](EXPERIMENTS_README.md)
